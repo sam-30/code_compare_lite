@@ -50,7 +50,7 @@ class LineSimilarityMethod(ComparisonMethod):
     method_id = "line_similarity"
     default_weight = 0.20
 
-    def compare(self, root_a, files_a, root_b, files_b, language):
+    def compare(self, root_a, files_a, root_b, files_b):
         if not files_a or not files_b:
             return MethodResult(method_id=self.method_id, score=0.0)
 

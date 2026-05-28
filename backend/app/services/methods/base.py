@@ -31,6 +31,5 @@ class ComparisonMethod(ABC):
         files_a: list[Path],
         root_b: Path,
         files_b: list[Path],
-        language: str,
     ) -> MethodResult:
         ...

@@ -16,12 +16,11 @@ async def client():
         yield c
 
 
-async def run_comparison(client: AsyncClient, path_a: Path, path_b: Path, language: str = "python") -> dict:
+async def run_comparison(client: AsyncClient, path_a: Path, path_b: Path) -> dict:
     """POST /compare with two local fixture paths and poll until done."""
     resp = await client.post("/compare", json={
         "repo_a": {"name": path_a.name, "source": "local", "path": str(path_a)},
         "repo_b": {"name": path_b.name, "source": "local", "path": str(path_b)},
-        "language": language,
     })
     assert resp.status_code == 200, f"POST /compare failed: {resp.text}"
     job_id = resp.json()["job_id"]

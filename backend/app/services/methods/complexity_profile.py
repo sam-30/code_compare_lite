@@ -73,7 +73,7 @@ class ComplexityProfileMethod(ComparisonMethod):
     method_id = "complexity_profile"
     default_weight = 0.05
 
-    def compare(self, root_a, files_a, root_b, files_b, language):
+    def compare(self, root_a, files_a, root_b, files_b):
         hist_a: Counter = Counter()
         for f in files_a:
             hist_a += _complexity_histogram(f)

@@ -12,7 +12,6 @@ class RepoSource(BaseModel):
 class CompareRequest(BaseModel):
     repo_a: RepoSource
     repo_b: RepoSource
-    language: str = "python"
     methods: Optional[list[str]] = None
 
 

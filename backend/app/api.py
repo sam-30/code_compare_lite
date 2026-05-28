@@ -26,7 +26,6 @@ async def create_comparison(payload: CompareRequest, background_tasks: Backgroun
 async def create_comparison_upload(
     repo_a_name: str = Form(...),
     repo_b_name: str = Form(...),
-    language: str = Form("python"),
     repo_a_zip: UploadFile = File(...),
     repo_b_zip: UploadFile = File(...),
     background_tasks: BackgroundTasks = BackgroundTasks(),
@@ -35,7 +34,7 @@ async def create_comparison_upload(
     _jobs[job_id] = {"status": "running", "result": None, "error": None}
     zip_a = await repo_a_zip.read()
     zip_b = await repo_b_zip.read()
-    background_tasks.add_task(_run_zip_job, job_id, repo_a_name, repo_b_name, language, zip_a, zip_b)
+    background_tasks.add_task(_run_zip_job, job_id, repo_a_name, repo_b_name, zip_a, zip_b)
     return {"job_id": job_id}
 
 
@@ -50,14 +49,14 @@ async def get_job(job_id: str):
 async def _run_job(job_id: str, payload: CompareRequest):
     from app.services.comparison import run_comparison
     try:
-        result = await run_comparison(job_id, payload.repo_a, payload.repo_b, payload.language, payload.methods)
+        result = await run_comparison(job_id, payload.repo_a, payload.repo_b, payload.methods)
         _save_json(job_id, result)
         _jobs[job_id] = {"status": "complete", "result": result, "error": None}
     except Exception as exc:
         _jobs[job_id] = {"status": "failed", "result": None, "error": str(exc)}
 
 
-async def _run_zip_job(job_id: str, name_a: str, name_b: str, language: str, zip_a: bytes, zip_b: bytes):
+async def _run_zip_job(job_id: str, name_a: str, name_b: str, zip_a: bytes, zip_b: bytes):
     import tempfile
     from app.services.comparison import run_comparison
     from app.services.zip_ingestion import extract_zip
@@ -67,7 +66,7 @@ async def _run_zip_job(job_id: str, name_a: str, name_b: str, language: str, zip
             extract_zip(zip_b, tmp_b)
             src_a = RepoSource(name=name_a, source="local", path=tmp_a)
             src_b = RepoSource(name=name_b, source="local", path=tmp_b)
-            result = await run_comparison(job_id, src_a, src_b, language, None)
+            result = await run_comparison(job_id, src_a, src_b, None)
         _save_json(job_id, result)
         _jobs[job_id] = {"status": "complete", "result": result, "error": None}
     except Exception as exc:

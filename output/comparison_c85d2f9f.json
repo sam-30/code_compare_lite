@@ -1,0 +1,192 @@
+{
+  "job_id": "c85d2f9f",
+  "repo_a_name": "similar_a",
+  "repo_b_name": "similar_b",
+  "language": "python",
+  "files_found_a": 1,
+  "files_found_b": 1,
+  "overall_score": 0.555,
+  "methods": [
+    {
+      "method_id": "file_hash",
+      "score": 0.0,
+      "weight": 0.1304,
+      "duration_ms": 1,
+      "details": {
+        "matched_files": 0,
+        "total_b_files": 1
+      }
+    },
+    {
+      "method_id": "line_similarity",
+      "score": 0.2,
+      "weight": 0.1739,
+      "duration_ms": 1,
+      "details": {
+        "avg_best_ratio": 0.2
+      }
+    },
+    {
+      "method_id": "function_names",
+      "score": 0.2222,
+      "weight": 0.1304,
+      "duration_ms": 8,
+      "details": {
+        "shared_names": [
+          "__init__",
+          "median",
+          "std_dev",
+          "variance"
+        ],
+        "unique_to_a": 7,
+        "unique_to_b": 7,
+        "shared_count": 4
+      }
+    },
+    {
+      "method_id": "ast_structure",
+      "score": 0.9873,
+      "weight": 0.1739,
+      "duration_ms": 20,
+      "details": {
+        "avg_ast_jaccard": 0.9873
+      }
+    },
+    {
+      "method_id": "token_ngram",
+      "score": 0.952,
+      "weight": 0.1739,
+      "duration_ms": 3,
+      "details": {
+        "avg_ngram_jaccard": 0.952,
+        "k": 5,
+        "w": 4
+      }
+    },
+    {
+      "method_id": "call_graph",
+      "score": 0.6314,
+      "weight": 0.087,
+      "duration_ms": 10,
+      "details": {
+        "avg_call_graph_sim": 0.6314
+      }
+    },
+    {
+      "method_id": "import_analysis",
+      "score": 1.0,
+      "weight": 0.0435,
+      "duration_ms": 3,
+      "details": {
+        "shared_imports": [
+          "math",
+          "typing"
+        ],
+        "shared_count": 2,
+        "unique_to_a": 0,
+        "unique_to_b": 0
+      }
+    },
+    {
+      "method_id": "identifier_similarity",
+      "score": 0.2785,
+      "weight": 0.0435,
+      "duration_ms": 1,
+      "details": {
+        "shared_identifiers": [
+          "List",
+          "Optional",
+          "ValueError",
+          "__init__",
+          "append",
+          "dict",
+          "float",
+          "int",
+          "len",
+          "list",
+          "math",
+          "max",
+          "median",
+          "min",
+          "range",
+          "self",
+          "sorted",
+          "sqrt",
+          "std_dev",
+          "sum",
+          "typing",
+          "variance"
+        ],
+        "shared_count": 22,
+        "unique_to_a": 27,
+        "unique_to_b": 30
+      }
+    },
+    {
+      "method_id": "complexity_profile",
+      "score": 1.0,
+      "weight": 0.0435,
+      "duration_ms": 1,
+      "details": {
+        "complexity_cosine": 1.0,
+        "a_func_count": 10,
+        "b_func_count": 10
+      }
+    }
+  ],
+  "file_matches": [
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "metrics.py",
+      "similarity_score": 0.9873,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.9873
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "metrics.py",
+      "similarity_score": 0.6314,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "metrics.py",
+      "file_b_path": "metrics.py",
+      "similarity_score": 0.2222,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "__init__",
+          "median",
+          "std_dev",
+          "variance"
+        ]
+      }
+    },
+    {
+      "file_a_path": "metrics.py",
+      "file_b_path": "metrics.py",
+      "similarity_score": 0.2,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.2,
+        "matching_blocks": [
+          {
+            "a_line_start": 58,
+            "b_line_start": 58,
+            "length": 3,
+            "lines": [
+              "            self._cached_mean = sum(self.dataset) / len(self.dataset) if self.dataset else 0.0",
+              "        return self._cached_mean",
+              ""
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "output_file": "output/comparison_c85d2f9f.json",
+  "created_at": "2026-05-28T07:18:37.517246+00:00"
+}

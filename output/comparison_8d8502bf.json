@@ -1,0 +1,238 @@
+{
+  "job_id": "8d8502bf",
+  "repo_a_name": "identical_a",
+  "repo_b_name": "identical_b",
+  "language": "python",
+  "files_found_a": 1,
+  "files_found_b": 1,
+  "overall_score": 1.0,
+  "methods": [
+    {
+      "method_id": "file_hash",
+      "score": 1.0,
+      "weight": 0.1304,
+      "duration_ms": 0,
+      "details": {
+        "matched_files": 1,
+        "total_b_files": 1
+      }
+    },
+    {
+      "method_id": "line_similarity",
+      "score": 1.0,
+      "weight": 0.1739,
+      "duration_ms": 0,
+      "details": {
+        "avg_best_ratio": 1.0
+      }
+    },
+    {
+      "method_id": "function_names",
+      "score": 1.0,
+      "weight": 0.1304,
+      "duration_ms": 6,
+      "details": {
+        "shared_names": [
+          "Statistics",
+          "__init__",
+          "mean",
+          "median",
+          "moving_average",
+          "normalize_values",
+          "percentile",
+          "std_dev",
+          "summary",
+          "variance",
+          "z_scores"
+        ],
+        "unique_to_a": 0,
+        "unique_to_b": 0,
+        "shared_count": 11
+      }
+    },
+    {
+      "method_id": "ast_structure",
+      "score": 1.0,
+      "weight": 0.1739,
+      "duration_ms": 13,
+      "details": {
+        "avg_ast_jaccard": 1.0
+      }
+    },
+    {
+      "method_id": "token_ngram",
+      "score": 1.0,
+      "weight": 0.1739,
+      "duration_ms": 2,
+      "details": {
+        "avg_ngram_jaccard": 1.0,
+        "k": 5,
+        "w": 4
+      }
+    },
+    {
+      "method_id": "call_graph",
+      "score": 1.0,
+      "weight": 0.087,
+      "duration_ms": 7,
+      "details": {
+        "avg_call_graph_sim": 1.0
+      }
+    },
+    {
+      "method_id": "import_analysis",
+      "score": 1.0,
+      "weight": 0.0435,
+      "duration_ms": 2,
+      "details": {
+        "shared_imports": [
+          "math",
+          "typing"
+        ],
+        "shared_count": 2,
+        "unique_to_a": 0,
+        "unique_to_b": 0
+      }
+    },
+    {
+      "method_id": "identifier_similarity",
+      "score": 1.0,
+      "weight": 0.0435,
+      "duration_ms": 1,
+      "details": {
+        "shared_identifiers": [
+          "List",
+          "Optional",
+          "Statistics",
+          "ValueError",
+          "__init__",
+          "_mean",
+          "_variance",
+          "append",
+          "chunk",
+          "data",
+          "dict",
+          "float",
+          "hi",
+          "i",
+          "idx",
+          "int",
+          "len",
+          "list",
+          "lo",
+          "m",
+          "math",
+          "max",
+          "max_val",
+          "mean",
+          "median",
+          "min",
+          "min_val",
+          "moving_average",
+          "n",
+          "normalize_values",
+          "p",
+          "percentile",
+          "range",
+          "result",
+          "s",
+          "self",
+          "sorted",
+          "sorted_data",
+          "sqrt",
+          "start"
+        ],
+        "shared_count": 49,
+        "unique_to_a": 0,
+        "unique_to_b": 0
+      }
+    },
+    {
+      "method_id": "complexity_profile",
+      "score": 1.0,
+      "weight": 0.0435,
+      "duration_ms": 1,
+      "details": {
+        "complexity_cosine": 1.0,
+        "a_func_count": 10,
+        "b_func_count": 10
+      }
+    }
+  ],
+  "file_matches": [
+    {
+      "file_a_path": "stats.py",
+      "file_b_path": "stats.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "9d28d276927949d1\u2026"
+      }
+    },
+    {
+      "file_a_path": "stats.py",
+      "file_b_path": "stats.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 1.0,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 74,
+            "lines": [
+              "\"\"\"Statistical analysis utilities.\"\"\"",
+              "import math",
+              "from typing import List, Optional",
+              "",
+              "",
+              "def normalize_values(data: List[float]) -> List[float]:",
+              "    if not data:",
+              "        return []"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "stats.py",
+      "file_b_path": "stats.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Statistics",
+          "__init__",
+          "mean",
+          "median",
+          "moving_average",
+          "normalize_values",
+          "percentile",
+          "std_dev",
+          "summary",
+          "variance",
+          "z_scores"
+        ]
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "stats.py",
+      "similarity_score": 1.0,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 1.0
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "stats.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    }
+  ],
+  "output_file": "output/comparison_8d8502bf.json",
+  "created_at": "2026-05-28T07:46:47.703041+00:00"
+}

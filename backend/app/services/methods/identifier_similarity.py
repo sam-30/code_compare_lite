@@ -14,7 +14,7 @@ class IdentifierSimilarityMethod(ComparisonMethod):
     method_id = "identifier_similarity"
     default_weight = 0.05
 
-    def compare(self, root_a, files_a, root_b, files_b, language):
+    def compare(self, root_a, files_a, root_b, files_b):
         ids_a: set[str] = set()
         for f in files_a:
             ids_a |= set(extract_identifiers(f))

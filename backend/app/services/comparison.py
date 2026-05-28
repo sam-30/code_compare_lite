@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from app.schemas import RepoSource
-from app.services.ingestion import collect_files
+from app.services.ingestion import collect_files, detect_language
 from app.services.methods.base import ComparisonMethod
 from app.services.methods.file_hash import FileHashMethod
 from app.services.methods.line_similarity import LineSimilarityMethod
@@ -38,7 +38,6 @@ async def run_comparison(
     job_id: str,
     src_a: RepoSource,
     src_b: RepoSource,
-    language: str,
     enabled_methods: list[str] | None,
 ) -> dict:
     import tempfile
@@ -49,8 +48,9 @@ async def run_comparison(
         root_a = await _resolve_path(src_a, tmp_dirs)
         root_b = await _resolve_path(src_b, tmp_dirs)
 
-        files_a = collect_files(root_a, language)
-        files_b = collect_files(root_b, language)
+        files_a = collect_files(root_a)
+        files_b = collect_files(root_b)
+        language = detect_language(files_a + files_b)
 
         weights = _default_weights()
         enabled = set(enabled_methods) if enabled_methods else {m.method_id for m in ALL_METHODS}
@@ -69,7 +69,7 @@ async def run_comparison(
             loop = asyncio.get_event_loop()
             try:
                 result = await loop.run_in_executor(
-                    None, method.compare, root_a, files_a, root_b, files_b, language
+                    None, method.compare, root_a, files_a, root_b, files_b
                 )
             except Exception as exc:
                 duration_ms = int((time.monotonic() - start) * 1000)

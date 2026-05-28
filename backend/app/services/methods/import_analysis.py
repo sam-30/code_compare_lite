@@ -67,7 +67,7 @@ class ImportAnalysisMethod(ComparisonMethod):
     method_id = "import_analysis"
     default_weight = 0.05
 
-    def compare(self, root_a, files_a, root_b, files_b, language):
+    def compare(self, root_a, files_a, root_b, files_b):
         imports_a: set[str] = set()
         for f in files_a:
             imports_a |= _extract_imports(f)

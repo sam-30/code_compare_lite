@@ -37,7 +37,7 @@ class FileHashMethod(ComparisonMethod):
     method_id = "file_hash"
     default_weight = 0.15
 
-    def compare(self, root_a, files_a, root_b, files_b, language):
+    def compare(self, root_a, files_a, root_b, files_b):
         hashes_a = {_hash_file(f) for f in files_a if f}
         hashes_a.discard("")
 

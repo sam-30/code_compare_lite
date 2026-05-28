@@ -21,7 +21,7 @@ class FunctionNamesMethod(ComparisonMethod):
     method_id = "function_names"
     default_weight = 0.15
 
-    def compare(self, root_a, files_a, root_b, files_b, language):
+    def compare(self, root_a, files_a, root_b, files_b):
         names_a_per_file = {f: extract_function_names(f) for f in files_a}
         names_b_per_file = {f: extract_function_names(f) for f in files_b}
 
