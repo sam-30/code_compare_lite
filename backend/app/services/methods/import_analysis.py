@@ -57,10 +57,10 @@ def _extract_imports(path: Path) -> set[str]:
 
 
 def _jaccard(a: set, b: set) -> float:
-    if not a and not b:
-        return 1.0
+    if not a or not b:
+        return 0.0
     union = a | b
-    return len(a & b) / len(union) if union else 0.0
+    return len(a & b) / len(union)
 
 
 class ImportAnalysisMethod(ComparisonMethod):

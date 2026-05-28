@@ -58,8 +58,8 @@ def _complexity_histogram(path: Path) -> Counter:
 
 
 def _cosine_counters(a: Counter, b: Counter) -> float:
-    if not a and not b:
-        return 1.0
+    if not a or not b:
+        return 0.0
     keys = set(a.keys()) | set(b.keys())
     dot = sum(a[k] * b[k] for k in keys)
     mag_a = math.sqrt(sum(v**2 for v in a.values()))

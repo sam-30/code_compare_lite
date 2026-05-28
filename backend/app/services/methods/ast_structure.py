@@ -47,8 +47,8 @@ def _subtree_fingerprints(path: Path, min_depth: int = 3) -> Counter:
 
 
 def _jaccard_multiset(a: Counter, b: Counter) -> float:
-    if not a and not b:
-        return 1.0
+    if not a or not b:
+        return 0.0
     intersection = sum((a & b).values())
     union = sum((a | b).values())
     return intersection / union if union else 0.0

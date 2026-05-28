@@ -23,8 +23,8 @@ class IdentifierSimilarityMethod(ComparisonMethod):
         for f in files_b:
             ids_b |= set(extract_identifiers(f))
 
-        if not ids_a and not ids_b:
-            score = 1.0
+        if not ids_a or not ids_b:
+            score = 0.0
         else:
             union = ids_a | ids_b
             score = len(ids_a & ids_b) / len(union) if union else 0.0
@@ -34,7 +34,8 @@ class IdentifierSimilarityMethod(ComparisonMethod):
             method_id=self.method_id,
             score=score,
             details={
-                "shared_identifiers_count": len(shared),
+                "shared_identifiers": shared[:40],
+                "shared_count": len(shared),
                 "unique_to_a": len(ids_a - ids_b),
                 "unique_to_b": len(ids_b - ids_a),
             },

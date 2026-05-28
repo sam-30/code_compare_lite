@@ -66,11 +66,22 @@ async def run_comparison(
 
             weight = weights.get(method.method_id, method.default_weight)
             start = time.monotonic()
-            # Run in thread so async event loop stays responsive
             loop = asyncio.get_event_loop()
-            result = await loop.run_in_executor(
-                None, method.compare, root_a, files_a, root_b, files_b, language
-            )
+            try:
+                result = await loop.run_in_executor(
+                    None, method.compare, root_a, files_a, root_b, files_b, language
+                )
+            except Exception as exc:
+                duration_ms = int((time.monotonic() - start) * 1000)
+                method_results.append({
+                    "method_id": method.method_id,
+                    "score": 0.0,
+                    "weight": round(weight, 4),
+                    "duration_ms": duration_ms,
+                    "details": {"error": str(exc)[:200]},
+                })
+                continue
+
             duration_ms = int((time.monotonic() - start) * 1000)
 
             method_results.append({
@@ -87,6 +98,7 @@ async def run_comparison(
                     "file_b_path": fm.file_b,
                     "similarity_score": round(fm.score, 4),
                     "method_id": result.method_id,
+                    "detail": fm.detail,
                 })
 
             weighted_sum += result.score * weight
@@ -99,9 +111,11 @@ async def run_comparison(
             "repo_a_name": src_a.name,
             "repo_b_name": src_b.name,
             "language": language,
+            "files_found_a": len(files_a),
+            "files_found_b": len(files_b),
             "overall_score": round(overall, 4),
             "methods": method_results,
-            "file_matches": sorted(file_matches, key=lambda x: x["similarity_score"], reverse=True)[:100],
+            "file_matches": sorted(file_matches, key=lambda x: x["similarity_score"], reverse=True)[:200],
             "output_file": f"output/comparison_{job_id}.json",
             "created_at": datetime.now(timezone.utc).isoformat(),
         }

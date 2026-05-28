@@ -108,7 +108,7 @@ def _cosine(a: list[float], b: list[float]) -> float:
 
 def _graph_similarity(ga: nx.DiGraph, gb: nx.DiGraph) -> float:
     if ga.number_of_nodes() == 0 and gb.number_of_nodes() == 0:
-        return 1.0
+        return 0.0
     if ga.number_of_nodes() == 0 or gb.number_of_nodes() == 0:
         return 0.0
 
