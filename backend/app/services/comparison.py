@@ -127,7 +127,10 @@ async def run_comparison(
 
 async def _resolve_path(src: RepoSource, tmp_dirs: list) -> Path:
     if src.source == "local":
-        return Path(src.path)
+        p = Path(src.path)
+        if not p.exists():
+            raise ValueError(f"Local path not found: {src.path}")
+        return p
     elif src.source == "git":
         import tempfile
         from app.services.git_ingestion import clone_repo
