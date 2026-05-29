@@ -1,0 +1,13 @@
+# Copy this file to docker-compose.override.yml and add any host directories
+# you want to compare as local paths.  The container path must match the host
+# path exactly so that the path you type in the UI resolves correctly.
+#
+# Do NOT mount macOS CloudStorage / OneDrive / iCloud paths — Docker Desktop
+# cannot access FileProvider virtual filesystems.  Copy or clone repos to a
+# regular directory first (e.g. ~/repos), then mount that.
+#
+# Example:
+services:
+  backend:
+    volumes:
+      - /Users/sam:/Users/sam:ro

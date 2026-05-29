@@ -2,6 +2,7 @@
 Thin wrapper around tree-sitter providing a single parse() function
 and query helpers for supported languages.
 """
+import logging
 from pathlib import Path
 from functools import lru_cache
 
@@ -9,6 +10,8 @@ import tree_sitter_python as tspython
 import tree_sitter_javascript as tsjavascript
 import tree_sitter_typescript as tstypescript
 from tree_sitter import Language, Parser
+
+logger = logging.getLogger(__name__)
 
 PY_LANGUAGE = Language(tspython.language())
 JS_LANGUAGE = Language(tsjavascript.language())
@@ -33,17 +36,17 @@ _FUNCTION_QUERIES: dict[Language, str] = {
     """,
     JS_LANGUAGE: """
         (function_declaration name: (identifier) @name)
-        (method_definition name: (property_identifier) @name)
+        (method_definition name: (_) @name)
         (class_declaration name: (identifier) @name)
     """,
     TS_LANGUAGE: """
         (function_declaration name: (identifier) @name)
-        (method_definition name: (property_identifier) @name)
+        (method_definition name: (_) @name)
         (class_declaration name: (identifier) @name)
     """,
     TSX_LANGUAGE: """
         (function_declaration name: (identifier) @name)
-        (method_definition name: (property_identifier) @name)
+        (method_definition name: (_) @name)
         (class_declaration name: (identifier) @name)
     """,
 }
@@ -52,6 +55,15 @@ _FUNCTION_QUERIES: dict[Language, str] = {
 @lru_cache(maxsize=4)
 def _get_parser(language: Language) -> Parser:
     return Parser(language)
+
+
+@lru_cache(maxsize=16)
+def _compile_query(lang: Language, query_str: str):
+    try:
+        return lang.query(query_str)
+    except Exception as exc:
+        logger.warning("Failed to compile tree-sitter query: %s", exc)
+        return None
 
 
 def get_language(path: Path) -> Language | None:
@@ -80,14 +92,21 @@ def extract_function_names(path: Path) -> set[str]:
     query_str = _FUNCTION_QUERIES.get(lang, "")  # type: ignore[arg-type]
     if not query_str:
         return set()
-    query = lang.query(query_str)  # type: ignore[union-attr]
-    # tree-sitter 0.23 returns dict[capture_name, list[Node]]
-    captures: dict = query.captures(root)
-    names: set[str] = set()
-    for node_list in captures.values():
-        for node in node_list:
-            names.add(src[node.start_byte:node.end_byte].decode(errors="replace"))
-    return names
+    query = _compile_query(lang, query_str)
+    if query is None:
+        logger.warning("Skipping function name extraction for %s (query compile failed)", path)
+        return set()
+    try:
+        # tree-sitter 0.23 returns dict[capture_name, list[Node]]
+        captures: dict = query.captures(root)
+        names: set[str] = set()
+        for node_list in captures.values():
+            for node in node_list:
+                names.add(src[node.start_byte:node.end_byte].decode(errors="replace"))
+        return names
+    except Exception as exc:
+        logger.warning("Error extracting function names from %s: %s", path, exc)
+        return set()
 
 
 def extract_identifiers(path: Path) -> list[str]:

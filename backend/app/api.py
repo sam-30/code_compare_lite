@@ -1,9 +1,13 @@
 import json
+import logging
+import traceback
 import uuid
 from pathlib import Path
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, BackgroundTasks, File, Form, HTTPException, UploadFile
+
+logger = logging.getLogger(__name__)
 
 from app.config import settings
 from app.schemas import CompareRequest, RepoSource
@@ -48,11 +52,22 @@ async def get_job(job_id: str):
 
 async def _run_job(job_id: str, payload: CompareRequest):
     from app.services.comparison import run_comparison
+    logger.info("job=%s started repo_a=%s repo_b=%s", job_id, payload.repo_a.name, payload.repo_b.name)
     try:
         result = await run_comparison(job_id, payload.repo_a, payload.repo_b, payload.methods)
         _save_json(job_id, result)
         _jobs[job_id] = {"status": "complete", "result": result, "error": None}
     except Exception as exc:
+        tb = traceback.format_exc()
+        logger.error("job=%s failed: %s\n%s", job_id, exc, tb)
+        error_result = {
+            "job_id": job_id,
+            "status": "failed",
+            "error": str(exc),
+            "traceback": tb,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        }
+        _save_json(job_id, error_result)
         _jobs[job_id] = {"status": "failed", "result": None, "error": str(exc)}
 
 
@@ -60,6 +75,7 @@ async def _run_zip_job(job_id: str, name_a: str, name_b: str, zip_a: bytes, zip_
     import tempfile
     from app.services.comparison import run_comparison
     from app.services.zip_ingestion import extract_zip
+    logger.info("job=%s started (zip) repo_a=%s repo_b=%s", job_id, name_a, name_b)
     try:
         with tempfile.TemporaryDirectory() as tmp_a, tempfile.TemporaryDirectory() as tmp_b:
             extract_zip(zip_a, tmp_a)
@@ -70,6 +86,16 @@ async def _run_zip_job(job_id: str, name_a: str, name_b: str, zip_a: bytes, zip_
         _save_json(job_id, result)
         _jobs[job_id] = {"status": "complete", "result": result, "error": None}
     except Exception as exc:
+        tb = traceback.format_exc()
+        logger.error("job=%s failed: %s\n%s", job_id, exc, tb)
+        error_result = {
+            "job_id": job_id,
+            "status": "failed",
+            "error": str(exc),
+            "traceback": tb,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        }
+        _save_json(job_id, error_result)
         _jobs[job_id] = {"status": "failed", "result": None, "error": str(exc)}
 
 

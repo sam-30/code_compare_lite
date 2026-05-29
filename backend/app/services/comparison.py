@@ -1,7 +1,11 @@
 import asyncio
+import logging
 import time
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 from app.schemas import RepoSource
 from app.services.ingestion import collect_files, detect_language
@@ -55,6 +59,11 @@ async def run_comparison(
         weights = _default_weights()
         enabled = set(enabled_methods) if enabled_methods else {m.method_id for m in ALL_METHODS}
 
+        logger.info(
+            "job=%s comparing %s (%d files) vs %s (%d files) lang=%s",
+            job_id, src_a.name, len(files_a), src_b.name, len(files_b), language,
+        )
+
         method_results = []
         file_matches = []
         weighted_sum = 0.0
@@ -67,22 +76,32 @@ async def run_comparison(
             weight = weights.get(method.method_id, method.default_weight)
             start = time.monotonic()
             loop = asyncio.get_event_loop()
+            logger.debug("job=%s method=%s starting", job_id, method.method_id)
             try:
                 result = await loop.run_in_executor(
                     None, method.compare, root_a, files_a, root_b, files_b
                 )
             except Exception as exc:
                 duration_ms = int((time.monotonic() - start) * 1000)
+                tb = traceback.format_exc()
+                logger.error(
+                    "job=%s method=%s failed in %dms: %s\n%s",
+                    job_id, method.method_id, duration_ms, exc, tb,
+                )
                 method_results.append({
                     "method_id": method.method_id,
                     "score": 0.0,
                     "weight": round(weight, 4),
                     "duration_ms": duration_ms,
-                    "details": {"error": str(exc)[:200]},
+                    "details": {"error": str(exc), "traceback": tb},
                 })
                 continue
 
             duration_ms = int((time.monotonic() - start) * 1000)
+            logger.info(
+                "job=%s method=%s score=%.4f duration_ms=%d",
+                job_id, method.method_id, result.score, duration_ms,
+            )
 
             method_results.append({
                 "method_id": result.method_id,
@@ -105,6 +124,7 @@ async def run_comparison(
             total_weight += weight
 
         overall = weighted_sum / total_weight if total_weight > 0 else 0.0
+        logger.info("job=%s overall_score=%.4f", job_id, overall)
 
         return {
             "job_id": job_id,

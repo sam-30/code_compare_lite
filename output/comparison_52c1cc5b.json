@@ -1,0 +1,2383 @@
+{
+  "job_id": "52c1cc5b",
+  "repo_a_name": "lite",
+  "repo_b_name": "full",
+  "language": "mixed",
+  "files_found_a": 38,
+  "files_found_b": 110,
+  "overall_score": 0.1626,
+  "methods": [
+    {
+      "method_id": "file_hash",
+      "score": 0.1273,
+      "weight": 0.1304,
+      "duration_ms": 25,
+      "details": {
+        "matched_files": 14,
+        "total_b_files": 110
+      }
+    },
+    {
+      "method_id": "line_similarity",
+      "score": 0.1745,
+      "weight": 0.1739,
+      "duration_ms": 83,
+      "details": {
+        "avg_best_ratio": 0.1745
+      }
+    },
+    {
+      "method_id": "function_names",
+      "score": 0.0,
+      "weight": 0.1304,
+      "duration_ms": 45,
+      "details": {
+        "error": "Impossible pattern at row 2, column 28"
+      }
+    },
+    {
+      "method_id": "ast_structure",
+      "score": 0.0196,
+      "weight": 0.1739,
+      "duration_ms": 721,
+      "details": {
+        "avg_ast_jaccard": 0.0196
+      }
+    },
+    {
+      "method_id": "token_ngram",
+      "score": 0.0127,
+      "weight": 0.1739,
+      "duration_ms": 177,
+      "details": {
+        "avg_ngram_jaccard": 0.0127,
+        "k": 5,
+        "w": 4
+      }
+    },
+    {
+      "method_id": "call_graph",
+      "score": 0.0,
+      "weight": 0.087,
+      "duration_ms": 121,
+      "details": {
+        "error": "Impossible pattern at row 2, column 28"
+      }
+    },
+    {
+      "method_id": "import_analysis",
+      "score": 0.5273,
+      "weight": 0.0435,
+      "duration_ms": 222,
+      "details": {
+        "shared_imports": [
+          "@vitejs",
+          "abc",
+          "app",
+          "asyncio",
+          "collections",
+          "dataclasses",
+          "datetime",
+          "difflib",
+          "fastapi",
+          "functools",
+          "git",
+          "hashlib",
+          "httpx",
+          "io",
+          "json",
+          "math",
+          "pathlib",
+          "pydantic",
+          "pydantic_settings",
+          "pytest",
+          "pytest_asyncio",
+          "re",
+          "react",
+          "react-dom",
+          "time",
+          "tree_sitter",
+          "typing",
+          "vite",
+          "zipfile"
+        ],
+        "shared_count": 29,
+        "unique_to_a": 6,
+        "unique_to_b": 20
+      }
+    },
+    {
+      "method_id": "identifier_similarity",
+      "score": 0.2927,
+      "weight": 0.0435,
+      "duration_ms": 65,
+      "details": {
+        "shared_identifiers": [
+          "ABC",
+          "ALL_METHODS",
+          "APIRouter",
+          "ASGITransport",
+          "App",
+          "AstStructureMethod",
+          "AsyncClient",
+          "BackgroundTasks",
+          "BaseModel",
+          "BaseSettings",
+          "BytesIO",
+          "CORSMiddleware",
+          "CallGraphMethod",
+          "ComparisonMethod",
+          "ComplexityProfileMethod",
+          "Counter",
+          "DiGraph",
+          "Error",
+          "Exception",
+          "FastAPI",
+          "File",
+          "FileHashMethod",
+          "FileMatch",
+          "FormData",
+          "FunctionNamesMethod",
+          "G",
+          "GitRepo",
+          "HTTPException",
+          "IGNORED_DIRS",
+          "IdentifierSimilarityMethod",
+          "ImportAnalysisMethod",
+          "JSON",
+          "JS_LANGUAGE",
+          "K",
+          "KEYWORD_LIKE",
+          "LANGUAGE_EXTENSIONS",
+          "Language",
+          "LineSimilarityMethod",
+          "MULTILINE",
+          "MethodResult"
+        ],
+        "shared_count": 458,
+        "unique_to_a": 341,
+        "unique_to_b": 766
+      }
+    },
+    {
+      "method_id": "complexity_profile",
+      "score": 0.8973,
+      "weight": 0.0435,
+      "duration_ms": 72,
+      "details": {
+        "complexity_cosine": 0.8973,
+        "a_func_count": 174,
+        "b_func_count": 291
+      }
+    }
+  ],
+  "file_matches": [
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/api/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/api/routes/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/core/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/schemas/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/services/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/services/methods/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/parser.py",
+      "file_b_path": "backend/app/services/parser.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "abea7391657582d5\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/app/workers/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/tests/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/tests/fixtures/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/tests/test_api/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "backend/tests/test_services/__init__.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/__init__.py",
+      "file_b_path": "frontend/src/vite-env.d.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/parser.py",
+      "file_b_path": "backend/app/services/parser.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 1.0,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 100,
+            "lines": [
+              "\"\"\"",
+              "Thin wrapper around tree-sitter providing a single parse() function",
+              "and query helpers for supported languages.",
+              "\"\"\"",
+              "from pathlib import Path",
+              "from functools import lru_cache",
+              "",
+              "import tree_sitter_python as tspython"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "frontend/src/vite-env.d.ts",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 1.0,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/token_ngram.py",
+      "file_b_path": "backend/app/services/methods/token_ngram.py",
+      "similarity_score": 0.9885,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9885,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 71,
+            "lines": [
+              "\"\"\"",
+              "Token n-gram fingerprinting (Winnowing algorithm, as used by MOSS/JPlag).",
+              "",
+              "1. Tokenise each file using tree-sitter leaf nodes (type stripped to category).",
+              "2. Build k-grams and hash each.",
+              "3. Apply a rolling window to select the minimum hash per window (Winnowing).",
+              "4. Compare the two fingerprint multi-sets.",
+              "\"\"\""
+            ]
+          },
+          {
+            "a_line_start": 73,
+            "b_line_start": 73,
+            "length": 15,
+            "lines": [
+              "",
+              "",
+              "def _fingerprint(path: Path) -> Counter:",
+              "    tokens = _tokenise(path)",
+              "    hashes = _kgram_hashes(tokens, K)",
+              "    return _winnow(hashes, W)",
+              "",
+              ""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/call_graph.py",
+      "file_b_path": "backend/app/services/methods/call_graph.py",
+      "similarity_score": 0.9841,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9841,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 90,
+            "lines": [
+              "\"\"\"",
+              "Call graph / logic tracing comparison.",
+              "",
+              "Builds a directed call graph per file using tree-sitter queries:",
+              "  - nodes = function/method names",
+              "  - edges = function A calls function B",
+              "",
+              "Then for each file in Repo B, finds its most similar counterpart in Repo A"
+            ]
+          },
+          {
+            "a_line_start": 105,
+            "b_line_start": 105,
+            "length": 22,
+            "lines": [
+              "        return 0.0",
+              "    return dot / (mag_a * mag_b)",
+              "",
+              "",
+              "def _graph_similarity(ga: nx.DiGraph, gb: nx.DiGraph) -> float:",
+              "    if ga.number_of_nodes() == 0 and gb.number_of_nodes() == 0:",
+              "        return 1.0",
+              "    if ga.number_of_nodes() == 0 or gb.number_of_nodes() == 0:"
+            ]
+          },
+          {
+            "a_line_start": 92,
+            "b_line_start": 92,
+            "length": 12,
+            "lines": [
+              "    for n in nodes:",
+              "        vec.append(float(G.in_degree(n)))",
+              "        vec.append(float(G.out_degree(n)))",
+              "    return vec",
+              "",
+              "",
+              "def _cosine(a: list[float], b: list[float]) -> float:",
+              "    if len(a) != len(b) or not a:"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "backend/app/services/methods/file_hash.py",
+      "similarity_score": 0.9828,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9828,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 29,
+            "lines": [
+              "\"\"\"",
+              "File hash comparison.",
+              "",
+              "Normalises each file (strip comments + blank lines) then SHA-256 hashes it.",
+              "Computes the fraction of files in Repo B whose normalised hash matches ANY",
+              "file in Repo A.",
+              "\"\"\"",
+              "import hashlib"
+            ]
+          },
+          {
+            "a_line_start": 31,
+            "b_line_start": 31,
+            "length": 28,
+            "lines": [
+              "        return \"\"",
+              "    normalised = _normalise(text)",
+              "    return hashlib.sha256(normalised.encode()).hexdigest()",
+              "",
+              "",
+              "class FileHashMethod(ComparisonMethod):",
+              "    method_id = \"file_hash\"",
+              "    default_weight = 0.15"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/base.py",
+      "file_b_path": "backend/app/services/methods/base.py",
+      "similarity_score": 0.9825,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9825,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 26,
+            "lines": [
+              "\"\"\"Abstract base for all comparison methods.\"\"\"",
+              "from abc import ABC, abstractmethod",
+              "from dataclasses import dataclass, field",
+              "from pathlib import Path",
+              "",
+              "",
+              "@dataclass",
+              "class FileMatch:"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/complexity_profile.py",
+      "file_b_path": "backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 0.9605,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9605,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 47,
+            "lines": [
+              "\"\"\"",
+              "Cyclomatic complexity profile comparison.",
+              "",
+              "Counts branch-inducing nodes (if, for, while, try, elif, case, \u2026) per",
+              "function to approximate cyclomatic complexity, then compares the sorted",
+              "complexity histograms using cosine similarity.",
+              "\"\"\"",
+              "import math"
+            ]
+          },
+          {
+            "a_line_start": 61,
+            "b_line_start": 61,
+            "length": 16,
+            "lines": [
+              "    if not a and not b:",
+              "        return 1.0",
+              "    keys = set(a.keys()) | set(b.keys())",
+              "    dot = sum(a[k] * b[k] for k in keys)",
+              "    mag_a = math.sqrt(sum(v**2 for v in a.values()))",
+              "    mag_b = math.sqrt(sum(v**2 for v in b.values()))",
+              "    if mag_a == 0 or mag_b == 0:",
+              "        return 0.0"
+            ]
+          },
+          {
+            "a_line_start": 50,
+            "b_line_start": 50,
+            "length": 10,
+            "lines": [
+              "            c = _count_branches_in_subtree(node) + 1  # baseline complexity = 1",
+              "            hist[c] += 1",
+              "        else:",
+              "            for child in node.children:",
+              "                walk(child)",
+              "",
+              "    walk(root)",
+              "    return hist"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/ast_structure.py",
+      "file_b_path": "backend/app/services/methods/ast_structure.py",
+      "similarity_score": 0.9583,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9583,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 38,
+            "lines": [
+              "\"\"\"",
+              "AST structural similarity.",
+              "",
+              "Serialises the AST of each file into a sequence of node types (identifiers",
+              "stripped), hashes overlapping subtrees, and computes Jaccard similarity of",
+              "the two subtree-fingerprint multisets.",
+              "\"\"\"",
+              "import hashlib"
+            ]
+          },
+          {
+            "a_line_start": 48,
+            "b_line_start": 48,
+            "length": 25,
+            "lines": [
+              "",
+              "def _jaccard_multiset(a: Counter, b: Counter) -> float:",
+              "    if not a and not b:",
+              "        return 1.0",
+              "    intersection = sum((a & b).values())",
+              "    union = sum((a | b).values())",
+              "    return intersection / union if union else 0.0",
+              ""
+            ]
+          },
+          {
+            "a_line_start": 41,
+            "b_line_start": 41,
+            "length": 6,
+            "lines": [
+              "            counts[h] += 1",
+              "        for child in node.children:",
+              "            walk(child, depth + 1)",
+              "",
+              "    walk(root)",
+              "    return counts"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/import_analysis.py",
+      "file_b_path": "backend/app/services/methods/import_analysis.py",
+      "similarity_score": 0.9487,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.9487,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 52,
+            "lines": [
+              "\"\"\"",
+              "Import / dependency profile comparison.",
+              "",
+              "Extracts all imported module names from both repos and computes Jaccard",
+              "similarity of the two sets.",
+              "\"\"\"",
+              "from pathlib import Path",
+              ""
+            ]
+          },
+          {
+            "a_line_start": 61,
+            "b_line_start": 61,
+            "length": 18,
+            "lines": [
+              "        return 1.0",
+              "    union = a | b",
+              "    return len(a & b) / len(union) if union else 0.0",
+              "",
+              "",
+              "class ImportAnalysisMethod(ComparisonMethod):",
+              "    method_id = \"import_analysis\"",
+              "    default_weight = 0.05"
+            ]
+          },
+          {
+            "a_line_start": 57,
+            "b_line_start": 57,
+            "length": 3,
+            "lines": [
+              "",
+              "",
+              "def _jaccard(a: set, b: set) -> float:"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/identifier_similarity.py",
+      "file_b_path": "backend/app/services/methods/identifier_similarity.py",
+      "similarity_score": 0.8657,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.8657,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 11,
+            "lines": [
+              "\"\"\"",
+              "Variable / identifier name similarity.",
+              "",
+              "Extracts all non-keyword identifiers from both repos and computes Jaccard",
+              "similarity of the two multisets (converted to sets for simplicity).",
+              "\"\"\"",
+              "from pathlib import Path",
+              ""
+            ]
+          },
+          {
+            "a_line_start": 21,
+            "b_line_start": 21,
+            "length": 8,
+            "lines": [
+              "",
+              "        ids_b: set[str] = set()",
+              "        for f in files_b:",
+              "            ids_b |= set(extract_identifiers(f))",
+              "",
+              "        if not ids_a and not ids_b:",
+              "            score = 1.0",
+              "        else:"
+            ]
+          },
+          {
+            "a_line_start": 13,
+            "b_line_start": 13,
+            "length": 6,
+            "lines": [
+              "class IdentifierSimilarityMethod(ComparisonMethod):",
+              "    method_id = \"identifier_similarity\"",
+              "    default_weight = 0.05",
+              "",
+              "    def compare(self, root_a, files_a, root_b, files_b, language):",
+              "        ids_a: set[str] = set()"
+            ]
+          },
+          {
+            "a_line_start": 31,
+            "b_line_start": 30,
+            "length": 4,
+            "lines": [
+              "            score = len(ids_a & ids_b) / len(union) if union else 0.0",
+              "",
+              "        shared = sorted(ids_a & ids_b)",
+              "        return MethodResult("
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/vite.config.ts",
+      "similarity_score": 0.8571,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.8571,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 14,
+            "lines": [
+              "import { defineConfig } from \"vite\";",
+              "import react from \"@vitejs/plugin-react\";",
+              "",
+              "export default defineConfig({",
+              "  plugins: [react()],",
+              "  server: {",
+              "    port: 5173,",
+              "    proxy: {"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "backend/app/main.py",
+      "similarity_score": 0.625,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.625,
+        "matching_blocks": [
+          {
+            "a_line_start": 8,
+            "b_line_start": 9,
+            "length": 3,
+            "lines": [
+              "    CORSMiddleware,",
+              "    allow_origins=[\"http://localhost:3000\", \"http://localhost:5173\"],",
+              "    allow_credentials=True,"
+            ]
+          },
+          {
+            "a_line_start": 12,
+            "b_line_start": 16,
+            "length": 3,
+            "lines": [
+              "app.include_router(auth.router)",
+              "app.include_router(repositories.router)",
+              "app.include_router(comparisons.router)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/line_similarity.py",
+      "file_b_path": "backend/app/services/methods/line_similarity.py",
+      "similarity_score": 0.5839,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.5839,
+        "matching_blocks": [
+          {
+            "a_line_start": 78,
+            "b_line_start": 47,
+            "length": 7,
+            "lines": [
+              "                if s > best_score:",
+              "                    best_score = s",
+              "                    best_fa = fa",
+              "",
+              "            total_score += best_score",
+              "            if best_fa is not None and best_score > 0:",
+              "                file_matches.append(FileMatch("
+            ]
+          },
+          {
+            "a_line_start": 11,
+            "b_line_start": 11,
+            "length": 5,
+            "lines": [
+              "from .base import ComparisonMethod, FileMatch, MethodResult",
+              "",
+              "",
+              "def _normalise_lines(path: Path) -> list[str]:",
+              "    try:"
+            ]
+          },
+          {
+            "a_line_start": 6,
+            "b_line_start": 6,
+            "length": 4,
+            "lines": [
+              "in A's closest match.",
+              "\"\"\"",
+              "import difflib",
+              "from pathlib import Path"
+            ]
+          },
+          {
+            "a_line_start": 59,
+            "b_line_start": 36,
+            "length": 4,
+            "lines": [
+              "",
+              "        cached_a = {f: _normalise_lines(f) for f in files_a}",
+              "        file_matches: list[FileMatch] = []",
+              "        total_score = 0.0"
+            ]
+          },
+          {
+            "a_line_start": 66,
+            "b_line_start": 41,
+            "length": 4,
+            "lines": [
+              "        for fb in files_b:",
+              "            lines_b = _normalise_lines(fb)",
+              "            best_score = 0.0",
+              "            best_fa: Path | None = None"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/tailwind.config.js",
+      "file_b_path": "frontend/tailwind.config.js",
+      "similarity_score": 0.5714,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.5714,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/src/main.tsx",
+      "file_b_path": "frontend/src/main.tsx",
+      "similarity_score": 0.5517,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.5517,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/function_names.py",
+      "file_b_path": "backend/app/services/methods/function_names.py",
+      "similarity_score": 0.5435,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.5435,
+        "matching_blocks": [
+          {
+            "a_line_start": 1,
+            "b_line_start": 1,
+            "length": 7,
+            "lines": [
+              "\"\"\"",
+              "Function / class / method name overlap.",
+              "",
+              "Collects all function and class names from both repos, computes Jaccard",
+              "similarity of the two name sets.",
+              "\"\"\"",
+              "from pathlib import Path"
+            ]
+          },
+          {
+            "a_line_start": 49,
+            "b_line_start": 31,
+            "length": 7,
+            "lines": [
+              "        names_b: set[str] = set()",
+              "        for f in files_b:",
+              "            names_b |= extract_function_names(f)",
+              "",
+              "        score = _jaccard(names_a, names_b)",
+              "        shared = sorted(names_a & names_b)",
+              "        return MethodResult("
+            ]
+          },
+          {
+            "a_line_start": 13,
+            "b_line_start": 15,
+            "length": 4,
+            "lines": [
+              "        return 1.0",
+              "    union = a | b",
+              "    if not union:",
+              "        return 0.0"
+            ]
+          },
+          {
+            "a_line_start": 45,
+            "b_line_start": 28,
+            "length": 3,
+            "lines": [
+              "        for f in files_a:",
+              "            names_a |= extract_function_names(f)",
+              ""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/postcss.config.js",
+      "file_b_path": "frontend/postcss.config.js",
+      "similarity_score": 0.4444,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.4444,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "backend/app/services/ingestion.py",
+      "similarity_score": 0.3299,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.3299,
+        "matching_blocks": [
+          {
+            "a_line_start": 7,
+            "b_line_start": 9,
+            "length": 6,
+            "lines": [
+              "    \"python\": {\".py\"},",
+              "    \"javascript\": {\".js\", \".ts\", \".jsx\", \".tsx\", \".mjs\", \".cjs\"},",
+              "}",
+              "",
+              "IGNORED_DIRS = {",
+              "    \".git\", \".hg\", \".svn\", \"__pycache__\", \".mypy_cache\","
+            ]
+          },
+          {
+            "a_line_start": 2,
+            "b_line_start": 5,
+            "length": 4,
+            "lines": [
+              "",
+              "from app.models.repository import Repository, RepositoryFile, RepositoryStatus",
+              "",
+              "LANGUAGE_EXTENSIONS: dict[str, set[str]] = {"
+            ]
+          },
+          {
+            "a_line_start": 14,
+            "b_line_start": 28,
+            "length": 4,
+            "lines": [
+              "",
+              "def _count_lines(path: Path) -> int:",
+              "    try:",
+              "        return path.read_text(errors=\"replace\").count(\"\\n\")"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/comparison.py",
+      "file_b_path": "backend/app/services/comparison_engine.py",
+      "similarity_score": 0.3167,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.3167,
+        "matching_blocks": [
+          {
+            "a_line_start": 17,
+            "b_line_start": 23,
+            "length": 14,
+            "lines": [
+              "from app.services.methods.complexity_profile import ComplexityProfileMethod",
+              "",
+              "# Registry of all available methods (ordered by phase)",
+              "ALL_METHODS: list[ComparisonMethod] = [",
+              "    FileHashMethod(),",
+              "    LineSimilarityMethod(),",
+              "    FunctionNamesMethod(),",
+              "    AstStructureMethod(),"
+            ]
+          },
+          {
+            "a_line_start": 7,
+            "b_line_start": 12,
+            "length": 10,
+            "lines": [
+              "from app.models.repository import Repository, RepositoryFile",
+              "from app.services.ingestion import collect_files",
+              "from app.services.methods.base import ComparisonMethod",
+              "from app.services.methods.file_hash import FileHashMethod",
+              "from app.services.methods.line_similarity import LineSimilarityMethod",
+              "from app.services.methods.function_names import FunctionNamesMethod",
+              "from app.services.methods.ast_structure import AstStructureMethod",
+              "from app.services.methods.token_ngram import TokenNgramMethod"
+            ]
+          },
+          {
+            "a_line_start": 52,
+            "b_line_start": 69,
+            "length": 5,
+            "lines": [
+              "        repo_a = await db.get(Repository, comparison.repo_a_id)",
+              "        repo_b = await db.get(Repository, comparison.repo_b_id)",
+              "        if repo_a is None or repo_b is None:",
+              "            raise ValueError(\"One or both repositories not found\")",
+              ""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "backend/app/core/config.py",
+      "similarity_score": 0.25,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.25,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/playwright.config.ts",
+      "similarity_score": 0.2424,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.2424,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/schemas.py",
+      "file_b_path": "backend/app/schemas/comparison.py",
+      "similarity_score": 0.241,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.241,
+        "matching_blocks": [
+          {
+            "a_line_start": 19,
+            "b_line_start": 12,
+            "length": 4,
+            "lines": [
+              "    duration_ms: int",
+              "",
+              "    model_config = {\"from_attributes\": True}",
+              ""
+            ]
+          },
+          {
+            "a_line_start": 13,
+            "b_line_start": 5,
+            "length": 3,
+            "lines": [
+              "",
+              "",
+              "class MethodResultOut(BaseModel):"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/postcss.config.js",
+      "file_b_path": "frontend/src/test/setup.ts",
+      "similarity_score": 0.2,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.2,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/zip_ingestion.py",
+      "file_b_path": "backend/app/services/zip_ingestion.py",
+      "similarity_score": 0.1818,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.1818,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/conftest.py",
+      "similarity_score": 0.129,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.129,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/src/api/configs.ts",
+      "similarity_score": 0.1071,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.1071,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/postcss.config.js",
+      "file_b_path": "frontend/src/components/StatusBadge.tsx",
+      "similarity_score": 0.1053,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.1053,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "frontend/src/components/RequireAuth.tsx",
+      "similarity_score": 0.0952,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0952,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/pages/NewComparisonPage.tsx",
+      "similarity_score": 0.0949,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0949
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/src/components/__tests__/FilePairTable.test.tsx",
+      "similarity_score": 0.0923,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0923,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_api/test_git_ingestion.py",
+      "similarity_score": 0.0879,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0879,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.tsx",
+      "file_b_path": "frontend/src/pages/NewComparisonPage.tsx",
+      "similarity_score": 0.079,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.079,
+        "matching_blocks": [
+          {
+            "a_line_start": 164,
+            "b_line_start": 210,
+            "length": 5,
+            "lines": [
+              "        </>",
+              "      ) : (",
+              "        <div className=\"space-y-3\">",
+              "          <div className=\"flex items-center justify-between\">",
+              "            <span className=\"font-medium text-gray-800\">{repo?.name ?? \"\u2026\"}</span>"
+            ]
+          },
+          {
+            "a_line_start": 135,
+            "b_line_start": 111,
+            "length": 4,
+            "lines": [
+              "              <button",
+              "                key={t.id}",
+              "                type=\"button\"",
+              "                role=\"tab\""
+            ]
+          },
+          {
+            "a_line_start": 151,
+            "b_line_start": 150,
+            "length": 4,
+            "lines": [
+              "                  placeholder=\"/path/to/codebase\"",
+              "                  required",
+              "                />",
+              "              </div>"
+            ]
+          },
+          {
+            "a_line_start": 249,
+            "b_line_start": 276,
+            "length": 4,
+            "lines": [
+              "            value={configId}",
+              "            onChange={(e) =>",
+              "              setConfigId(e.target.value === \"default\" ? \"default\" : Number(e.target.value))",
+              "            }"
+            ]
+          },
+          {
+            "a_line_start": 358,
+            "b_line_start": 307,
+            "length": 3,
+            "lines": [
+              "}",
+              "",
+              "export default function NewComparisonPage() {"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/src/api/comparisons.ts",
+      "similarity_score": 0.0769,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0769,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/e2e/comparison_flow.spec.ts",
+      "similarity_score": 0.0748,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0748,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.tsx",
+      "file_b_path": "frontend/src/components/MethodBreakdown.tsx",
+      "similarity_score": 0.0743,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0743,
+        "matching_blocks": [
+          {
+            "a_line_start": 47,
+            "b_line_start": 16,
+            "length": 6,
+            "lines": [
+              "const METHOD_LABELS: Record<string, string> = {",
+              "  file_hash: \"File Hash\",",
+              "  line_similarity: \"Line Similarity\",",
+              "  function_names: \"Function Names\",",
+              "  ast_structure: \"AST Structure\",",
+              "  token_ngram: \"Token N-gram\","
+            ]
+          },
+          {
+            "a_line_start": 447,
+            "b_line_start": 90,
+            "length": 5,
+            "lines": [
+              "                data-testid={`score-${m.method_id}`}",
+              "              >",
+              "                {pctStr(m.score)}",
+              "              </td>",
+              "              <td className=\"py-1.5 text-right font-mono text-gray-500\">"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_api/test_zip_ingestion.py",
+      "similarity_score": 0.0741,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0741,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/postcss.config.js",
+      "file_b_path": "frontend/src/api/auth.ts",
+      "similarity_score": 0.0741,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0741,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/src/main.tsx",
+      "file_b_path": "frontend/src/__tests__/App.test.tsx",
+      "similarity_score": 0.0727,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0727,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "frontend/src/api/client.ts",
+      "similarity_score": 0.0714,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0714,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_services/test_advanced_methods.py",
+      "similarity_score": 0.0692,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0692
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/git_ingestion.py",
+      "file_b_path": "backend/app/services/git_ingestion.py",
+      "similarity_score": 0.069,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.069,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_auth.py",
+      "similarity_score": 0.069,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.069
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/api/routes/comparisons.py",
+      "similarity_score": 0.0687,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0687
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "backend/app/workers/celery_app.py",
+      "similarity_score": 0.0667,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0667,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_api/test_sse.py",
+      "similarity_score": 0.0667,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0667,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_api/test_comparisons_api.py",
+      "similarity_score": 0.0661,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0661,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_api/test_export.py",
+      "similarity_score": 0.0656,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0656,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "frontend/src/components/ExportButton.tsx",
+      "similarity_score": 0.0625,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0625,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "frontend/src/main.tsx",
+      "file_b_path": "frontend/src/App.tsx",
+      "similarity_score": 0.0606,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0606,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/alembic/versions/0001_initial_schema.py",
+      "similarity_score": 0.0592,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0592
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/report.py",
+      "similarity_score": 0.0589,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0589
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "backend/app/core/security.py",
+      "similarity_score": 0.0588,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0588,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/__tests__/Auth.test.tsx",
+      "similarity_score": 0.0585,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0585
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_services/test_line_similarity.py",
+      "similarity_score": 0.058,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.058,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "backend/alembic/versions/0002_add_users.py",
+      "similarity_score": 0.0561,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0561,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_similarity_scores.py",
+      "file_b_path": "backend/alembic/versions/0001_initial_schema.py",
+      "similarity_score": 0.056,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.056,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/schemas.py",
+      "file_b_path": "backend/app/schemas/repository.py",
+      "similarity_score": 0.0556,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0556,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "backend/tests/test_api/test_health.py",
+      "similarity_score": 0.0556,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0556,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/ConfigEditor.tsx",
+      "similarity_score": 0.0554,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0554
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/function_names.py",
+      "file_b_path": "backend/tests/test_services/test_function_names.py",
+      "similarity_score": 0.0526,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0526,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "backend/tests/test_api/test_db_connection.py",
+      "similarity_score": 0.0513,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0513,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_configs_api.py",
+      "similarity_score": 0.0512,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0512
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "backend/tests/test_services/test_ingestion.py",
+      "similarity_score": 0.051,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.051,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "frontend/src/components/Layout.tsx",
+      "similarity_score": 0.0506,
+      "method_id": "line_similarity",
+      "detail": {
+        "line_ratio": 0.0506,
+        "matching_blocks": []
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_services/test_comparison_engine.py",
+      "similarity_score": 0.0469,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0469
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_export.py",
+      "similarity_score": 0.0419,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0419
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_sse.py",
+      "similarity_score": 0.0418,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0418
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/__tests__/ConfigEditor.test.tsx",
+      "similarity_score": 0.0416,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0416
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/api/routes/repositories.py",
+      "similarity_score": 0.0403,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0403
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/e2e/comparison_flow.spec.ts",
+      "similarity_score": 0.0395,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0395
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/call_graph.py",
+      "similarity_score": 0.0393,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0393
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_services/test_ingestion.py",
+      "similarity_score": 0.0392,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0392
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/comparison_engine.py",
+      "similarity_score": 0.0374,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0374
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_comparisons_api.py",
+      "similarity_score": 0.0365,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0365
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/pages/ResultsPage.tsx",
+      "similarity_score": 0.036,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.036
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/hooks/__tests__/useComparisonStream.test.tsx",
+      "similarity_score": 0.0348,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0348
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_zip_ingestion.py",
+      "similarity_score": 0.0332,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0332
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/parser.py",
+      "similarity_score": 0.0328,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0328
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/models/comparison.py",
+      "similarity_score": 0.0305,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0305
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/token_ngram.py",
+      "similarity_score": 0.0304,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0304
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/MethodBreakdown.tsx",
+      "similarity_score": 0.0304,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0304
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_git_ingestion.py",
+      "similarity_score": 0.0295,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0295
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/__tests__/NewComparisonTabs.test.tsx",
+      "similarity_score": 0.0289,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0289
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/e2e/auth.spec.ts",
+      "similarity_score": 0.027,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.027
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/FilePairTable.tsx",
+      "similarity_score": 0.0262,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0262
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/__tests__/NewComparisonPage.test.tsx",
+      "similarity_score": 0.026,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.026
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/ast_structure.py",
+      "similarity_score": 0.0259,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0259
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/ingestion.py",
+      "similarity_score": 0.0254,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0254
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/api/routes/configs.py",
+      "similarity_score": 0.0251,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0251
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 0.0246,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0246
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_repos_api.py",
+      "similarity_score": 0.0241,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0241
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/pages/HistoryPage.tsx",
+      "similarity_score": 0.0238,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0238
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_services/test_file_hash.py",
+      "similarity_score": 0.0235,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0235
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/pages/RegisterPage.tsx",
+      "similarity_score": 0.0229,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0229
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/import_analysis.py",
+      "similarity_score": 0.0227,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0227
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/pages/LoginPage.tsx",
+      "similarity_score": 0.0215,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0215
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_services/test_function_names.py",
+      "similarity_score": 0.0214,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0214
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/hooks/useComparisonStream.ts",
+      "similarity_score": 0.0214,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0214
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/models/repository.py",
+      "similarity_score": 0.021,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.021
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_services/test_line_similarity.py",
+      "similarity_score": 0.0202,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0202
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/api/repositories.ts",
+      "similarity_score": 0.0192,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0192
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/ScoreGauge.tsx",
+      "similarity_score": 0.019,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.019
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/e2e/helpers.ts",
+      "similarity_score": 0.0185,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0185
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/api/comparisons.ts",
+      "similarity_score": 0.0182,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0182
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/line_similarity.py",
+      "similarity_score": 0.0179,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0179
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/file_hash.py",
+      "similarity_score": 0.0175,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0175
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/__tests__/FilePairTable.test.tsx",
+      "similarity_score": 0.0171,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0171
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/e2e/new_comparison_tabs.spec.ts",
+      "similarity_score": 0.0169,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0169
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/__tests__/MethodBreakdown.test.tsx",
+      "similarity_score": 0.0169,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0169
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/conftest.py",
+      "similarity_score": 0.0159,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0159
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/schemas/config.py",
+      "similarity_score": 0.0152,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0152
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/alembic/versions/0002_add_users.py",
+      "similarity_score": 0.0151,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0151
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/__tests__/ExportButton.test.tsx",
+      "similarity_score": 0.015,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.015
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/api/routes/auth.py",
+      "similarity_score": 0.0149,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0149
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/__tests__/App.test.tsx",
+      "similarity_score": 0.0144,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0144
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/core/security.py",
+      "similarity_score": 0.0137,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0137
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/api/configs.ts",
+      "similarity_score": 0.0128,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0128
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/__tests__/ScoreGauge.test.tsx",
+      "similarity_score": 0.0127,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0127
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/zip_ingestion.py",
+      "similarity_score": 0.0115,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0115
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/Layout.tsx",
+      "similarity_score": 0.0108,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0108
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/schemas/comparison.py",
+      "similarity_score": 0.0107,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0107
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/function_names.py",
+      "similarity_score": 0.0106,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0106
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/schemas/repository.py",
+      "similarity_score": 0.0099,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0099
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/identifier_similarity.py",
+      "similarity_score": 0.0095,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0095
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/api/auth.ts",
+      "similarity_score": 0.0095,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0095
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/alembic/env.py",
+      "similarity_score": 0.009,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.009
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/ExportButton.tsx",
+      "similarity_score": 0.0084,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0084
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/git_ingestion.py",
+      "similarity_score": 0.008,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.008
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/App.tsx",
+      "similarity_score": 0.0069,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0069
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/services/methods/base.py",
+      "similarity_score": 0.0066,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0066
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/main.py",
+      "similarity_score": 0.006,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.006
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_db_connection.py",
+      "similarity_score": 0.0057,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0057
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/models/config.py",
+      "similarity_score": 0.0055,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0055
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/models/user.py",
+      "similarity_score": 0.0049,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0049
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/StatusBadge.tsx",
+      "similarity_score": 0.0046,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0046
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/main.tsx",
+      "similarity_score": 0.0046,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0046
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/workers/tasks.py",
+      "similarity_score": 0.0045,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0045
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/vite.config.ts",
+      "similarity_score": 0.0044,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0044
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/api/client.ts",
+      "similarity_score": 0.0041,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0041
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/core/config.py",
+      "similarity_score": 0.0039,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0039
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/workers/celery_app.py",
+      "similarity_score": 0.0035,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0035
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/schemas/user.py",
+      "similarity_score": 0.0034,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0034
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/playwright.config.ts",
+      "similarity_score": 0.0034,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0034
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/core/database.py",
+      "similarity_score": 0.0026,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0026
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/test_api/test_health.py",
+      "similarity_score": 0.0025,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0025
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/app/models/__init__.py",
+      "similarity_score": 0.0024,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0024
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/components/RequireAuth.tsx",
+      "similarity_score": 0.0023,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0023
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/fixtures/sample_python/module_a.py",
+      "similarity_score": 0.0019,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0019
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/tailwind.config.js",
+      "similarity_score": 0.0013,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0013
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/src/test/setup.ts",
+      "similarity_score": 0.001,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.001
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "backend/tests/fixtures/sample_python/module_b.py",
+      "similarity_score": 0.0009,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0009
+      }
+    },
+    {
+      "file_a_path": "(any)",
+      "file_b_path": "frontend/postcss.config.js",
+      "similarity_score": 0.0008,
+      "method_id": "ast_structure",
+      "detail": {
+        "ast_jaccard": 0.0008
+      }
+    }
+  ],
+  "output_file": "output/comparison_52c1cc5b.json",
+  "created_at": "2026-05-28T18:56:57.725012+00:00"
+}
