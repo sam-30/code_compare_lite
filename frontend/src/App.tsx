@@ -122,6 +122,112 @@ function MiniBar({ score }: { score: number }) {
   );
 }
 
+// ── Directory browser modal ────────────────────────────────────────────────────
+
+interface BrowseEntry { name: string; path: string; }
+interface BrowseResult { path: string; parent: string | null; dirs: BrowseEntry[]; }
+
+function DirectoryBrowser({ initial, onSelect, onClose }: {
+  initial: string;
+  onSelect: (path: string) => void;
+  onClose: () => void;
+}) {
+  const [current, setCurrent] = useState<BrowseResult | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const navigate = async (path: string) => {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(`/api/browse?path=${encodeURIComponent(path)}`);
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setError((err as { detail?: string }).detail ?? "Could not open directory");
+        setLoading(false);
+        return;
+      }
+      setCurrent(await res.json() as BrowseResult);
+    } catch {
+      setError("Network error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Open at the typed path if valid, otherwise fall back to "/"
+  useState(() => { navigate(initial || "/"); });
+
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div
+        className="bg-white rounded-xl shadow-2xl w-full max-w-md flex flex-col overflow-hidden"
+        style={{ maxHeight: "75vh" }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
+          <h3 className="font-semibold text-gray-800 text-sm">Select Folder</h3>
+          <button type="button" onClick={onClose} className="text-gray-400 hover:text-gray-600 text-lg leading-none">✕</button>
+        </div>
+
+        {/* Current path + up button */}
+        <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 border-b border-gray-100">
+          <button
+            type="button"
+            onClick={() => current?.parent && navigate(current.parent)}
+            disabled={!current?.parent}
+            className="shrink-0 p-1 rounded hover:bg-gray-200 disabled:opacity-30 disabled:cursor-default transition-colors"
+            title="Up one level"
+          >
+            ↑
+          </button>
+          <code className="text-xs text-gray-600 truncate flex-1">{current?.path ?? "…"}</code>
+        </div>
+
+        {/* Directory listing */}
+        <div className="flex-1 overflow-y-auto divide-y divide-gray-50">
+          {loading && <p className="text-center text-gray-400 text-sm py-8">Loading…</p>}
+          {error && <p className="text-red-500 text-sm px-4 py-3">{error}</p>}
+          {!loading && !error && current?.dirs.length === 0 && (
+            <p className="text-gray-400 text-sm px-4 py-8 text-center">No subdirectories</p>
+          )}
+          {current?.dirs.map(dir => (
+            <button
+              key={dir.path}
+              type="button"
+              onClick={() => navigate(dir.path)}
+              className="w-full text-left px-4 py-2.5 text-sm hover:bg-blue-50 flex items-center gap-2.5 transition-colors"
+            >
+              <span className="text-blue-400 shrink-0">📁</span>
+              <span className="truncate text-gray-800">{dir.name}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between gap-2 px-4 py-3 border-t border-gray-200 bg-gray-50">
+          <code className="text-xs text-gray-500 truncate flex-1">{current?.path ?? ""}</code>
+          <div className="flex gap-2 shrink-0">
+            <button type="button" onClick={onClose}
+              className="text-sm text-gray-600 px-3 py-1.5 rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors">
+              Cancel
+            </button>
+            <button
+              type="button"
+              disabled={!current}
+              onClick={() => { onSelect(current!.path); onClose(); }}
+              className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-lg disabled:opacity-40 transition-colors"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Repo input card ────────────────────────────────────────────────────────────
 
 interface RepoCardProps {
@@ -136,22 +242,12 @@ interface RepoCardProps {
 
 function RepoCard({ label, accent, name, onNameChange, tab, onTabChange, url, onUrlChange, path, onPathChange, file, onFileChange }: RepoCardProps) {
   const fileRef = useRef<HTMLInputElement>(null);
-  const dirRef = useRef<HTMLInputElement>(null);
+  const [browseOpen, setBrowseOpen] = useState(false);
   const tabs: { id: SourceTab; label: string }[] = [
     { id: "git", label: "Git URL" },
     { id: "local", label: "Local Path" },
     { id: "zip", label: "Upload ZIP" },
   ];
-
-  const handleDirSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
-    // webkitRelativePath is "foldername/subdir/file.txt" — extract the top-level folder name
-    const rel: string = (files[0] as File & { webkitRelativePath?: string }).webkitRelativePath ?? "";
-    const folderName = rel.split("/")[0] || files[0].name;
-    onPathChange(folderName);
-    e.target.value = "";
-  };
 
   return (
     <div className={`border-2 ${accent} rounded-xl p-5 flex flex-col gap-4`}>
@@ -189,23 +285,19 @@ function RepoCard({ label, accent, name, onNameChange, tab, onTabChange, url, on
             />
             <button
               type="button"
-              onClick={() => dirRef.current?.click()}
+              onClick={() => setBrowseOpen(true)}
               className="shrink-0 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:border-gray-400 transition-colors"
             >
               Browse…
             </button>
           </div>
-          <p className="text-xs text-gray-400">
-            Browse fills in the folder name — prepend the full path if needed.
-          </p>
-          {/* Hidden directory picker — webkitdirectory is non-standard but widely supported */}
-          <input
-            ref={dirRef}
-            type="file"
-            className="hidden"
-            onChange={handleDirSelect}
-            {...{ webkitdirectory: "" } as React.InputHTMLAttributes<HTMLInputElement>}
-          />
+          {browseOpen && (
+            <DirectoryBrowser
+              initial={path}
+              onSelect={onPathChange}
+              onClose={() => setBrowseOpen(false)}
+            />
+          )}
         </div>
       )}
       {tab === "zip" && (

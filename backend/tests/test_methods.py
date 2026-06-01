@@ -144,6 +144,36 @@ class TestFileHashMethod:
         assert result.details["matched_files"] == 1
         assert result.details["total_b_files"] == 2
 
+    def test_ignored_filenames_excluded(self, tmp_path):
+        """__init__.py and other boilerplate files must not be scored."""
+        from app.services.methods.file_hash import IGNORED_FILENAMES
+        # Both repos have an identical __init__.py — it should not count
+        root_a, files_a = _repo(tmp_path, "a", {"__init__.py": PY_FUNCS, "real.py": PY_FUNCS})
+        root_b, files_b = _repo(tmp_path, "b", {"__init__.py": PY_FUNCS, "real.py": PY_DIFFERENT})
+        result = self.method.compare(root_a, files_a, root_b, files_b)
+        # Only real.py is considered; it doesn't match → score 0
+        assert result.score == 0.0
+        assert result.details["total_b_files"] == 1
+
+    def test_all_ignored_files_returns_zero(self, tmp_path):
+        """If every file in both repos is on the ignore list, score is 0."""
+        root_a, files_a = _repo(tmp_path, "a", {"__init__.py": PY_FUNCS, "index.js": "export {}"})
+        root_b, files_b = _repo(tmp_path, "b", {"__init__.py": PY_FUNCS, "index.js": "export {}"})
+        result = self.method.compare(root_a, files_a, root_b, files_b)
+        assert result.score == 0.0
+
+    @pytest.mark.parametrize("filename", [
+        "__init__.py", "__main__.py", "conftest.py", "setup.py",
+        "index.js", "index.ts", "index.jsx", "index.tsx", "index.mjs", "index.cjs",
+    ])
+    def test_each_ignored_filename_is_skipped(self, tmp_path, filename):
+        """Every filename in the ignore list is excluded from scoring."""
+        root_a, files_a = _repo(tmp_path, "a", {filename: PY_FUNCS})
+        root_b, files_b = _repo(tmp_path, "b", {filename: PY_FUNCS})
+        result = self.method.compare(root_a, files_a, root_b, files_b)
+        assert result.score == 0.0
+        assert result.details["total_b_files"] == 0
+
 
 # ── LineSimilarityMethod ──────────────────────────────────────────────────────
 

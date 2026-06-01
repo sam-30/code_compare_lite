@@ -22,6 +22,8 @@ The overall score is a weighted average of all nine methods. Methods that tend t
 
 **What it misses:** Any change to the actual code — even renaming a single variable — will produce a different fingerprint.
 
+**Excluded files:** The following common boilerplate files are ignored entirely, as they are nearly identical across most projects and would inflate the score: `__init__.py`, `__main__.py`, `conftest.py`, `setup.py`, `index.js`, `index.ts`, `index.jsx`, `index.tsx`, `index.mjs`, `index.cjs`.
+
 ---
 
 ### 2. Line Similarity — *~17% of the overall score*

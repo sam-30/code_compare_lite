@@ -42,6 +42,25 @@ async def create_comparison_upload(
     return {"job_id": job_id}
 
 
+@router.get("/browse")
+async def browse_directory(path: str = "/"):
+    p = Path(path).resolve()
+    if not p.exists() or not p.is_dir():
+        raise HTTPException(status_code=404, detail=f"Directory not found: {path}")
+    try:
+        dirs = sorted(
+            (c for c in p.iterdir() if c.is_dir() and not c.name.startswith(".")),
+            key=lambda c: c.name.lower(),
+        )
+    except PermissionError:
+        raise HTTPException(status_code=403, detail="Permission denied")
+    return {
+        "path": str(p),
+        "parent": str(p.parent) if p.parent != p else None,
+        "dirs": [{"name": c.name, "path": str(c)} for c in dirs],
+    }
+
+
 @router.get("/compare/{job_id}")
 async def get_job(job_id: str):
     job = _jobs.get(job_id)

@@ -1,0 +1,7 @@
+{
+  "job_id": "c25bf147",
+  "status": "failed",
+  "error": "Local path not found: code_compare_lite",
+  "traceback": "Traceback (most recent call last):\n  File \"/app/app/api.py\", line 57, in _run_job\n    result = await run_comparison(job_id, payload.repo_a, payload.repo_b, payload.methods)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/app/services/comparison.py\", line 52, in run_comparison\n    root_a = await _resolve_path(src_a, tmp_dirs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/app/app/services/comparison.py\", line 152, in _resolve_path\n    raise ValueError(f\"Local path not found: {src.path}\")\nValueError: Local path not found: code_compare_lite\n",
+  "created_at": "2026-06-01T04:16:12.631586+00:00"
+}
