@@ -172,22 +172,38 @@ async def test_file_counts_reported(client: AsyncClient):
     assert result["files_found_b"] == 1
 
 
-async def test_line_similarity_returns_matching_blocks(client: AsyncClient):
-    """line_similarity file matches must include matching_blocks for identical repos."""
+async def test_line_similarity_file_match_detail(client: AsyncClient):
+    """line_similarity file matches must include matched_lines and sample_matches."""
     result = await run_comparison(
         client, FIXTURES / "identical_a", FIXTURES / "identical_b",
     )
     line_matches = [fm for fm in result["file_matches"] if fm["method_id"] == "line_similarity"]
     assert len(line_matches) > 0, "No line_similarity file matches for identical repos"
     for fm in line_matches:
-        assert "matching_blocks" in fm["detail"], "matching_blocks missing from line_similarity detail"
-        blocks = fm["detail"]["matching_blocks"]
-        assert len(blocks) > 0, "No matching blocks found for identical files"
-        for block in blocks:
-            assert "lines" in block
-            assert "a_line_start" in block
-            assert "b_line_start" in block
-            assert block["length"] >= 3
+        detail = fm["detail"]
+        assert "matched_lines" in detail, "matched_lines missing from line_similarity detail"
+        assert "total_b_lines" in detail, "total_b_lines missing from line_similarity detail"
+        assert "sample_matches" in detail, "sample_matches missing from line_similarity detail"
+        assert detail["matched_lines"] > 0, "Expected matched lines for identical files"
+        assert detail["matched_lines"] <= detail["total_b_lines"]
+
+
+async def test_line_similarity_stats_in_details(client: AsyncClient):
+    """line_similarity method details must include character-length stats and top_matched_lines."""
+    result = await run_comparison(
+        client, FIXTURES / "identical_a", FIXTURES / "identical_b",
+    )
+    methods = {m["method_id"]: m for m in result["methods"]}
+    ls = methods["line_similarity"]
+    d = ls["details"]
+    for stat_key in ("all_b_lines_char_length", "matched_lines_char_length"):
+        assert stat_key in d, f"{stat_key} missing from line_similarity details"
+        stat = d[stat_key]
+        assert "min" in stat and "avg" in stat and "max" in stat
+        assert stat["min"] <= stat["avg"] <= stat["max"]
+    assert "top_matched_lines" in d, "top_matched_lines missing"
+    for entry in d["top_matched_lines"]:
+        assert "line" in entry and "file_count" in entry
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

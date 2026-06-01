@@ -8,6 +8,9 @@ Builds a directed call graph per file using tree-sitter queries:
 Then for each file in Repo B, finds its most similar counterpart in Repo A
 using cosine similarity of their degree-sequence vectors (in-degree,
 out-degree per node).
+
+Also exports a repo-level combined graph for visualization, with nodes
+labelled as "a" (only in A), "b" (only in B), or "shared".
 """
 import math
 from pathlib import Path
@@ -121,6 +124,50 @@ def _graph_similarity(ga: nx.DiGraph, gb: nx.DiGraph) -> float:
     return _cosine(va, vb)
 
 
+def _build_graph_export(ga: nx.DiGraph, gb: nx.DiGraph, max_nodes: int = 60) -> dict:
+    """Produce a node/edge dict suitable for frontend graph visualization."""
+    nodes_a = set(ga.nodes())
+    nodes_b = set(gb.nodes())
+    shared = nodes_a & nodes_b
+    all_nodes = nodes_a | nodes_b
+
+    if not all_nodes:
+        return {"nodes": [], "edges": []}
+
+    # Build a combined graph to rank nodes by total degree
+    combined = nx.DiGraph()
+    combined.add_nodes_from(all_nodes)
+    combined.add_edges_from(ga.edges())
+    combined.add_edges_from(gb.edges())
+
+    # Prioritise shared nodes, then by combined degree
+    def priority(n: str) -> tuple:
+        return (1 if n in shared else 0, combined.degree(n))
+
+    top: set[str] = set(sorted(all_nodes, key=priority, reverse=True)[:max_nodes])
+
+    def group(n: str) -> str:
+        if n in shared:
+            return "shared"
+        return "a" if n in nodes_a else "b"
+
+    nodes = [{"id": n, "group": group(n)} for n in top]
+
+    # Deduplicate edges: same call in both repos → "shared" edge
+    edges_a = {(u, v) for u, v in ga.edges() if u in top and v in top}
+    edges_b = {(u, v) for u, v in gb.edges() if u in top and v in top}
+
+    edges = []
+    for u, v in edges_a & edges_b:
+        edges.append({"source": u, "target": v, "repo": "shared"})
+    for u, v in edges_a - edges_b:
+        edges.append({"source": u, "target": v, "repo": "a"})
+    for u, v in edges_b - edges_a:
+        edges.append({"source": u, "target": v, "repo": "b"})
+
+    return {"nodes": nodes, "edges": edges}
+
+
 class CallGraphMethod(ComparisonMethod):
     method_id = "call_graph"
     default_weight = 0.10
@@ -129,12 +176,14 @@ class CallGraphMethod(ComparisonMethod):
         if not files_a or not files_b:
             return MethodResult(method_id=self.method_id, score=0.0)
 
+        # Build all graphs once — reused for scoring and visualization
         graphs_a = [_build_call_graph(f) for f in files_a]
+        graphs_b = [_build_call_graph(f) for f in files_b]
+
         file_matches: list[FileMatch] = []
         total_score = 0.0
 
-        for fb in files_b:
-            gb = _build_call_graph(fb)
+        for fb, gb in zip(files_b, graphs_b):
             best = max((_graph_similarity(ga, gb) for ga in graphs_a), default=0.0)
             total_score += best
             if best > 0:
@@ -145,9 +194,26 @@ class CallGraphMethod(ComparisonMethod):
                 ))
 
         score = total_score / len(files_b)
+
+        # Merge per-file graphs into repo-level graphs for visualization
+        combined_a: nx.DiGraph = nx.DiGraph()
+        for g in graphs_a:
+            combined_a.add_nodes_from(g.nodes())
+            combined_a.add_edges_from(g.edges())
+
+        combined_b: nx.DiGraph = nx.DiGraph()
+        for g in graphs_b:
+            combined_b.add_nodes_from(g.nodes())
+            combined_b.add_edges_from(g.edges())
+
+        graph_data = _build_graph_export(combined_a, combined_b)
+
         return MethodResult(
             method_id=self.method_id,
             score=score,
             file_matches=file_matches,
-            details={"avg_call_graph_sim": round(score, 4)},
+            details={
+                "avg_call_graph_sim": round(score, 4),
+                "graph": graph_data,
+            },
         )

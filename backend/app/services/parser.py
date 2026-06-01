@@ -40,14 +40,12 @@ _FUNCTION_QUERIES: dict[Language, str] = {
         (class_declaration name: (identifier) @name)
     """,
     TS_LANGUAGE: """
-        (function_declaration name: (identifier) @name)
-        (method_definition name: (_) @name)
-        (class_declaration name: (identifier) @name)
+        (function_declaration name: (_) @name)
+        (class_declaration name: (_) @name)
     """,
     TSX_LANGUAGE: """
-        (function_declaration name: (identifier) @name)
-        (method_definition name: (_) @name)
-        (class_declaration name: (identifier) @name)
+        (function_declaration name: (_) @name)
+        (class_declaration name: (_) @name)
     """,
 }
 

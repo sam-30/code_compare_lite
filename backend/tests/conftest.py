@@ -16,6 +16,14 @@ async def client():
         yield c
 
 
+@pytest.fixture(autouse=True)
+def _redirect_output(tmp_path, monkeypatch):
+    """Redirect JSON output to a per-test temp dir so output/ is never written during tests."""
+    import app.api as api_module
+    from app.config import Settings
+    monkeypatch.setattr(api_module, "settings", Settings(output_dir=str(tmp_path)))
+
+
 async def run_comparison(client: AsyncClient, path_a: Path, path_b: Path) -> dict:
     """POST /compare with two local fixture paths and poll until done."""
     resp = await client.post("/compare", json={

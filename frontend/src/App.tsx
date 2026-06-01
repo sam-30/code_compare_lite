@@ -3,6 +3,11 @@ import { useState, useRef } from "react";
 type Phase = "idle" | "running" | "complete" | "error";
 type SourceTab = "git" | "local" | "zip";
 
+// ── Call graph types ───────────────────────────────────────────────────────────
+interface GraphNode { id: string; group: "a" | "b" | "shared"; }
+interface GraphEdge { source: string; target: string; repo: "a" | "b" | "shared"; }
+interface GraphData { nodes: GraphNode[]; edges: GraphEdge[]; }
+
 interface MatchingBlock {
   a_line_start: number;
   b_line_start: number;
@@ -131,11 +136,23 @@ interface RepoCardProps {
 
 function RepoCard({ label, accent, name, onNameChange, tab, onTabChange, url, onUrlChange, path, onPathChange, file, onFileChange }: RepoCardProps) {
   const fileRef = useRef<HTMLInputElement>(null);
+  const dirRef = useRef<HTMLInputElement>(null);
   const tabs: { id: SourceTab; label: string }[] = [
     { id: "git", label: "Git URL" },
     { id: "local", label: "Local Path" },
     { id: "zip", label: "Upload ZIP" },
   ];
+
+  const handleDirSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    // webkitRelativePath is "foldername/subdir/file.txt" — extract the top-level folder name
+    const rel: string = (files[0] as File & { webkitRelativePath?: string }).webkitRelativePath ?? "";
+    const folderName = rel.split("/")[0] || files[0].name;
+    onPathChange(folderName);
+    e.target.value = "";
+  };
+
   return (
     <div className={`border-2 ${accent} rounded-xl p-5 flex flex-col gap-4`}>
       <h3 className="font-semibold text-gray-700 text-sm uppercase tracking-wide">{label}</h3>
@@ -160,10 +177,35 @@ function RepoCard({ label, accent, name, onNameChange, tab, onTabChange, url, on
         </div>
       )}
       {tab === "local" && (
-        <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">Local Path</label>
-          <input type="text" value={path} onChange={e => onPathChange(e.target.value)} placeholder="/path/to/repo"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <div className="flex flex-col gap-1.5">
+          <label className="block text-xs font-medium text-gray-600">Local Path</label>
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={path}
+              onChange={e => onPathChange(e.target.value)}
+              placeholder="/path/to/repo"
+              className="flex-1 min-w-0 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+            <button
+              type="button"
+              onClick={() => dirRef.current?.click()}
+              className="shrink-0 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:border-gray-400 transition-colors"
+            >
+              Browse…
+            </button>
+          </div>
+          <p className="text-xs text-gray-400">
+            Browse fills in the folder name — prepend the full path if needed.
+          </p>
+          {/* Hidden directory picker — webkitdirectory is non-standard but widely supported */}
+          <input
+            ref={dirRef}
+            type="file"
+            className="hidden"
+            onChange={handleDirSelect}
+            {...{ webkitdirectory: "" } as React.InputHTMLAttributes<HTMLInputElement>}
+          />
         </div>
       )}
       {tab === "zip" && (
@@ -179,6 +221,144 @@ function RepoCard({ label, accent, name, onNameChange, tab, onTabChange, url, on
           <input ref={fileRef} type="file" accept=".zip" className="hidden" onChange={e => onFileChange(e.target.files?.[0] ?? null)} />
         </div>
       )}
+    </div>
+  );
+}
+
+// ── Call graph visualization ───────────────────────────────────────────────────
+
+const NODE_COLORS: Record<string, string> = { a: "#3b82f6", shared: "#8b5cf6", b: "#f97316" };
+const EDGE_COLORS: Record<string, string> = { a: "#bfdbfe", shared: "#ddd6fe", b: "#fed7aa" };
+
+function CallGraphViz({ graph, nameA, nameB }: { graph: GraphData; nameA: string; nameB: string }) {
+  const R = 5;
+  const LABEL_MAX = 20;
+  const ROW_H = 22;
+  const SVG_W = 900;
+  const PAD_TOP = 36;
+  const PAD_BOT = 24;
+
+  const aNodes = graph.nodes.filter(n => n.group === "a");
+  const sNodes = graph.nodes.filter(n => n.group === "shared");
+  const bNodes = graph.nodes.filter(n => n.group === "b");
+
+  const maxRows = Math.max(aNodes.length, sNodes.length, bNodes.length, 1);
+  const SVG_H = PAD_TOP + PAD_BOT + maxRows * ROW_H;
+
+  // Column x positions
+  const CX = { a: 200, shared: 450, b: 700 };
+
+  const pos: Record<string, { x: number; y: number }> = {};
+
+  function placeCol(nodes: GraphNode[], x: number) {
+    const span = (nodes.length - 1) * ROW_H;
+    const startY = PAD_TOP + (SVG_H - PAD_TOP - PAD_BOT - span) / 2;
+    nodes.forEach((n, i) => { pos[n.id] = { x, y: startY + i * ROW_H }; });
+  }
+  placeCol(aNodes, CX.a);
+  placeCol(sNodes, CX.shared);
+  placeCol(bNodes, CX.b);
+
+  const trunc = (s: string) => s.length > LABEL_MAX ? s.slice(0, LABEL_MAX - 1) + "…" : s;
+
+  function renderEdge(e: GraphEdge, i: number) {
+    const s = pos[e.source], t = pos[e.target];
+    if (!s || !t) return null;
+    const dx = t.x - s.x, dy = t.y - s.y;
+    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    // Pull endpoints to circle surface
+    const x1 = s.x + (dx / dist) * (R + 1);
+    const y1 = s.y + (dy / dist) * (R + 1);
+    const x2 = t.x - (dx / dist) * (R + 4);
+    const y2 = t.y - (dy / dist) * (R + 4);
+    const color = EDGE_COLORS[e.repo];
+    // Same column → curved arc to avoid overlapping nodes
+    if (Math.abs(s.x - t.x) < 5) {
+      const bend = s.x < SVG_W / 2 ? -55 : 55;
+      return (
+        <path key={i} d={`M${x1},${y1} Q${s.x + bend},${(s.y + t.y) / 2} ${x2},${y2}`}
+          fill="none" stroke={color} strokeWidth={1} strokeOpacity={0.75}
+          markerEnd={`url(#arr-${e.repo})`} />
+      );
+    }
+    return (
+      <line key={i} x1={x1} y1={y1} x2={x2} y2={y2}
+        stroke={color} strokeWidth={1} strokeOpacity={0.6}
+        markerEnd={`url(#arr-${e.repo})`} />
+    );
+  }
+
+  const truncName = (s: string) => s.length > 14 ? s.slice(0, 5) + "…" : s;
+
+  return (
+    <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white p-2">
+      <svg width={SVG_W} height={SVG_H} style={{ fontFamily: "ui-monospace, monospace", display: "block" }}>
+        <defs>
+          {(["a", "b", "shared"] as const).map(repo => (
+            <marker key={repo} id={`arr-${repo}`} markerWidth={5} markerHeight={5} refX={4} refY={2.5} orient="auto">
+              <path d="M0,0 L0,5 L5,2.5 z" fill={EDGE_COLORS[repo]} />
+            </marker>
+          ))}
+        </defs>
+
+        {/* Dashed column dividers */}
+        <line x1={325} y1={28} x2={325} y2={SVG_H - 8} stroke="#e5e7eb" strokeWidth={1} strokeDasharray="4,3" />
+        <line x1={575} y1={28} x2={575} y2={SVG_H - 8} stroke="#e5e7eb" strokeWidth={1} strokeDasharray="4,3" />
+
+        {/* Column headers */}
+        <text x={CX.a} y={18} textAnchor="middle" fontSize={11} fontWeight="600" fill="#2563eb">
+          {truncName(nameA)} only ({aNodes.length})
+        </text>
+        <text x={CX.shared} y={18} textAnchor="middle" fontSize={11} fontWeight="600" fill="#7c3aed">
+          Shared ({sNodes.length})
+        </text>
+        <text x={CX.b} y={18} textAnchor="middle" fontSize={11} fontWeight="600" fill="#ea580c">
+          {truncName(nameB)} only ({bNodes.length})
+        </text>
+
+        {/* Edges first so nodes render on top */}
+        {graph.edges.map((e, i) => renderEdge(e, i))}
+
+        {/* Nodes + labels */}
+        {graph.nodes.map(n => {
+          const p = pos[n.id];
+          if (!p) return null;
+          // A-only: label to the left; shared + B: label to the right
+          const labelLeft = n.group === "a";
+          return (
+            <g key={n.id}>
+              <title>{n.id}</title>
+              <circle cx={p.x} cy={p.y} r={R} fill={NODE_COLORS[n.group]} />
+              <text
+                x={labelLeft ? p.x - R - 4 : p.x + R + 4}
+                y={p.y + 3}
+                textAnchor={labelLeft ? "end" : "start"}
+                fontSize={9}
+                fill="#374151"
+              >
+                {trunc(n.id)}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+
+      {/* Legend */}
+      <div className="flex flex-wrap gap-4 px-2 pt-1 pb-0.5 text-xs text-gray-500">
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: NODE_COLORS.a }} />
+          {nameA} only
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: NODE_COLORS.shared }} />
+          Shared
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ background: NODE_COLORS.b }} />
+          {nameB} only
+        </span>
+        <span className="text-gray-400">Arrows show function calls. Hover a node for its full name.</span>
+      </div>
     </div>
   );
 }
@@ -277,7 +457,7 @@ function FilePairDetail({ fm }: { fm: FileMatch }) {
 
 // ── Method card (collapsible) ──────────────────────────────────────────────────
 
-function MethodCard({ method, matches }: { method: MethodResult; matches: FileMatch[] }) {
+function MethodCard({ method, matches, nameA, nameB }: { method: MethodResult; matches: FileMatch[]; nameA: string; nameB: string }) {
   const [open, setOpen] = useState(false);
   const d = method.details;
 
@@ -290,13 +470,17 @@ function MethodCard({ method, matches }: { method: MethodResult; matches: FileMa
     .map(([k, v]) => ({ label: DETAIL_LABELS[k], raw: k, value: String(v) }));
 
   const hasError = d.error != null;
+  const graphData = method.method_id === "call_graph" ? (d.graph as GraphData | undefined) : undefined;
+  const hasGraph = (graphData?.nodes.length ?? 0) > 0;
+
   const hasContent =
     stats.length > 0 ||
     sharedNames.length > 0 ||
     sharedImports.length > 0 ||
     sharedIds.length > 0 ||
     matches.length > 0 ||
-    hasError;
+    hasError ||
+    hasGraph;
 
   return (
     <div>
@@ -344,6 +528,14 @@ function MethodCard({ method, matches }: { method: MethodResult; matches: FileMa
                   );
                 })}
               </div>
+            </div>
+          )}
+
+          {/* Call graph visualization */}
+          {hasGraph && graphData && (
+            <div>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Call Graph</p>
+              <CallGraphViz graph={graphData} nameA={nameA} nameB={nameB} />
             </div>
           )}
 
@@ -455,6 +647,8 @@ function ResultsView({ result, onReset }: { result: CompareResult; onReset: () =
               key={m.method_id}
               method={m}
               matches={matchesByMethod[m.method_id] ?? []}
+              nameA={result.repo_a_name}
+              nameB={result.repo_b_name}
             />
           ))}
         </div>
@@ -626,3 +820,6 @@ export default function App() {
     </div>
   );
 }
+
+// Named exports for unit testing
+export { scoreColor, scoreBg, scoreBar, Pct, MiniBar, CallGraphViz, SharedPills, FilePairDetail, MethodCard };
