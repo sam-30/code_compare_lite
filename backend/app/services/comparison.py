@@ -15,7 +15,6 @@ from app.services.methods.line_similarity import LineSimilarityMethod
 from app.services.methods.function_names import FunctionNamesMethod
 from app.services.methods.ast_structure import AstStructureMethod
 from app.services.methods.token_ngram import TokenNgramMethod
-from app.services.methods.call_graph import CallGraphMethod
 from app.services.methods.import_analysis import ImportAnalysisMethod
 from app.services.methods.identifier_similarity import IdentifierSimilarityMethod
 ALL_METHODS: list[ComparisonMethod] = [
@@ -24,7 +23,6 @@ ALL_METHODS: list[ComparisonMethod] = [
     FunctionNamesMethod(),
     AstStructureMethod(),
     TokenNgramMethod(),
-    CallGraphMethod(),
     ImportAnalysisMethod(),
     IdentifierSimilarityMethod(),
 ]
@@ -130,6 +128,8 @@ async def run_comparison(
             "language": language,
             "files_found_a": len(files_a),
             "files_found_b": len(files_b),
+            "files_a": [str(f.relative_to(root_a)) for f in files_a],
+            "files_b": [str(f.relative_to(root_b)) for f in files_b],
             "overall_score": round(overall, 4),
             "methods": method_results,
             "file_matches": sorted(file_matches, key=lambda x: x["similarity_score"], reverse=True)[:200],

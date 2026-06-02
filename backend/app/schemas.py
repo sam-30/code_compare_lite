@@ -35,6 +35,10 @@ class CompareResult(BaseModel):
     repo_a_name: str
     repo_b_name: str
     language: str
+    files_found_a: int = 0
+    files_found_b: int = 0
+    files_a: list[str] = []
+    files_b: list[str] = []
     overall_score: float
     methods: list[MethodResult]
     file_matches: list[FileMatch]

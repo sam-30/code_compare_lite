@@ -44,15 +44,6 @@ def main():
     pass
 """
 
-PY_CALLS = """\
-def helper():
-    return 1
-
-def main():
-    result = helper()
-    return result
-"""
-
 PY_BRANCHES = """\
 def complex_func(x, y):
     if x > 0:
@@ -392,72 +383,6 @@ class TestTokenNgramMethod:
         root_b, files_b = _repo(tmp_path, "b", {"f.py": renamed})
         result = self.method.compare(root_a, files_a, root_b, files_b)
         assert result.score > 0.5
-
-
-# ── CallGraphMethod ────────────────────────────────────────────────────────────
-
-class TestCallGraphMethod:
-    @pytest.fixture(autouse=True)
-    def _method(self):
-        from app.services.methods.call_graph import CallGraphMethod
-        self.method = CallGraphMethod()
-
-    def test_identical_call_patterns_high_score(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_CALLS})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_CALLS})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        assert result.score > 0.5
-
-    def test_empty_inputs_returns_zero(self, tmp_path):
-        root_a = tmp_path / "a"
-        root_a.mkdir()
-        root_b = tmp_path / "b"
-        root_b.mkdir()
-        result = self.method.compare(root_a, [], root_b, [])
-        assert result.score == 0.0
-
-    def test_graph_exported_in_details(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_CALLS})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_CALLS})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        assert "graph" in result.details
-        graph = result.details["graph"]
-        assert "nodes" in graph
-        assert "edges" in graph
-
-    def test_graph_nodes_have_group(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_CALLS})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_CALLS})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        nodes = result.details["graph"]["nodes"]
-        assert len(nodes) > 0
-        for node in nodes:
-            assert node["group"] in ("a", "b", "shared")
-
-    def test_shared_functions_labelled_shared(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_CALLS})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_CALLS})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        nodes = {n["id"]: n["group"] for n in result.details["graph"]["nodes"]}
-        # helper and main are defined in both repos → should be "shared"
-        assert nodes.get("helper") == "shared"
-        assert nodes.get("main") == "shared"
-
-    def test_graph_capped_at_60_nodes(self, tmp_path):
-        # Create a file with 80 functions to test the cap
-        many_funcs = "\n".join(f"def func_{i}():\n    pass" for i in range(80))
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": many_funcs})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": many_funcs})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        nodes = result.details["graph"]["nodes"]
-        assert len(nodes) <= 60
-
-    def test_graph_edges_have_repo_field(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_CALLS})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_CALLS})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        for edge in result.details["graph"]["edges"]:
-            assert edge["repo"] in ("a", "b", "shared")
 
 
 # ── ImportAnalysisMethod ──────────────────────────────────────────────────────
