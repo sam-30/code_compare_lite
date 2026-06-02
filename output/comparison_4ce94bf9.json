@@ -1,0 +1,4515 @@
+{
+  "job_id": "4ce94bf9",
+  "repo_a_name": "lite",
+  "repo_b_name": "full",
+  "language": "mixed",
+  "files_found_a": 45,
+  "files_found_b": 11309,
+  "overall_score": 0.0854,
+  "methods": [
+    {
+      "method_id": "file_hash",
+      "score": 0.0048,
+      "weight": 0.1304,
+      "duration_ms": 1874,
+      "details": {
+        "matched_files": 48,
+        "total_b_files": 10013
+      }
+    },
+    {
+      "method_id": "line_similarity",
+      "score": 0.1045,
+      "weight": 0.1739,
+      "duration_ms": 1664,
+      "details": {
+        "matched_lines": 5398,
+        "total_b_lines": 51666,
+        "all_b_lines_char_length": {
+          "min": 4,
+          "avg": 59.0,
+          "max": 275834
+        },
+        "matched_lines_char_length": {
+          "min": 4,
+          "avg": 40.5,
+          "max": 179
+        },
+        "top_matched_lines": [
+          {
+            "line": "return (",
+            "file_count": 118
+          },
+          {
+            "line": "</div>",
+            "file_count": 108
+          },
+          {
+            "line": "import pytest",
+            "file_count": 77
+          },
+          {
+            "line": "</button>",
+            "file_count": 66
+          },
+          {
+            "line": "try {",
+            "file_count": 60
+          },
+          {
+            "line": "from pathlib import Path",
+            "file_count": 52
+          },
+          {
+            "line": "try:",
+            "file_count": 51
+          },
+          {
+            "line": "<button",
+            "file_count": 51
+          },
+          {
+            "line": "</span>",
+            "file_count": 49
+          },
+          {
+            "line": "</p>",
+            "file_count": 48
+          }
+        ]
+      }
+    },
+    {
+      "method_id": "function_names",
+      "score": 0.1093,
+      "weight": 0.1304,
+      "duration_ms": 2147,
+      "details": {
+        "shared_names": [
+          "App",
+          "AstStructureMethod",
+          "CallGraphMethod",
+          "CallGraphViz",
+          "CompareRequest",
+          "CompareResult",
+          "ComparisonMethod",
+          "ComplexityProfileMethod",
+          "ConnectionPool",
+          "DataStats",
+          "DirectoryBrowser",
+          "FileHashMethod",
+          "FileMatch",
+          "FilePairDetail",
+          "FunctionNamesMethod",
+          "HttpResponse",
+          "IdentifierSimilarityMethod",
+          "ImportAnalysisMethod",
+          "JobStatus",
+          "Lexer",
+          "LineSimilarityMethod",
+          "MethodCard",
+          "MethodResult",
+          "MetricSummary",
+          "MiniBar",
+          "Pct",
+          "RepoCard",
+          "RepoSource",
+          "ResultsView",
+          "RetryPolicy",
+          "Settings",
+          "SharedPills",
+          "Statistics",
+          "TestAstStructureMethod",
+          "TestCallGraphMethod",
+          "TestCollectFiles",
+          "TestComplexityProfileMethod",
+          "TestDetectLanguage",
+          "TestExtractFunctionNames",
+          "TestExtractIdentifiers",
+          "TestExtractZip",
+          "TestFileHashMethod",
+          "TestFunctionNamesMethod",
+          "TestGetLanguage",
+          "TestIdentifierSimilarityMethod",
+          "TestImportAnalysisMethod",
+          "TestLineSimilarityMethod",
+          "TestParse",
+          "TestTokenNgramMethod",
+          "TokenNgramMethod"
+        ],
+        "unique_to_a": 0,
+        "unique_to_b": 2355,
+        "shared_count": 289
+      }
+    },
+    {
+      "method_id": "ast_structure",
+      "score": 0.0013,
+      "weight": 0.1739,
+      "duration_ms": 14542,
+      "details": {
+        "avg_ast_jaccard": 0.0013
+      }
+    },
+    {
+      "method_id": "token_ngram",
+      "score": 0.0007,
+      "weight": 0.1739,
+      "duration_ms": 10428,
+      "details": {
+        "avg_ngram_jaccard": 0.0007,
+        "k": 5,
+        "w": 4
+      }
+    },
+    {
+      "method_id": "call_graph",
+      "score": 0.0149,
+      "weight": 0.087,
+      "duration_ms": 6985,
+      "details": {
+        "avg_call_graph_sim": 0.0149,
+        "graph": {
+          "nodes": [
+            {
+              "id": "_file_lines",
+              "group": "shared"
+            },
+            {
+              "id": "placeCol",
+              "group": "shared"
+            },
+            {
+              "id": "_complexity_histogram",
+              "group": "shared"
+            },
+            {
+              "id": "skip_whitespace",
+              "group": "shared"
+            },
+            {
+              "id": "walk",
+              "group": "shared"
+            },
+            {
+              "id": "bigrams",
+              "group": "shared"
+            },
+            {
+              "id": "_winnow",
+              "group": "shared"
+            },
+            {
+              "id": "lookup",
+              "group": "shared"
+            },
+            {
+              "id": "size",
+              "group": "shared"
+            },
+            {
+              "id": "group",
+              "group": "shared"
+            },
+            {
+              "id": "average",
+              "group": "shared"
+            },
+            {
+              "id": "CallGraphMethod",
+              "group": "shared"
+            },
+            {
+              "id": "_cosine",
+              "group": "shared"
+            },
+            {
+              "id": "_method_summary",
+              "group": "shared"
+            },
+            {
+              "id": "_build_graph_export",
+              "group": "shared"
+            },
+            {
+              "id": "_compile_query",
+              "group": "shared"
+            },
+            {
+              "id": "_cosine_counters",
+              "group": "shared"
+            },
+            {
+              "id": "variance",
+              "group": "shared"
+            },
+            {
+              "id": "_graph_similarity",
+              "group": "shared"
+            },
+            {
+              "id": "inverse_document_frequency",
+              "group": "shared"
+            },
+            {
+              "id": "tokens",
+              "group": "shared"
+            },
+            {
+              "id": "compare",
+              "group": "shared"
+            },
+            {
+              "id": "__init__",
+              "group": "shared"
+            },
+            {
+              "id": "parse",
+              "group": "shared"
+            },
+            {
+              "id": "renderEdge",
+              "group": "shared"
+            },
+            {
+              "id": "TokenNgramMethod",
+              "group": "shared"
+            },
+            {
+              "id": "_tokenise",
+              "group": "shared"
+            },
+            {
+              "id": "_jaccard_multiset",
+              "group": "shared"
+            },
+            {
+              "id": "get_language",
+              "group": "shared"
+            },
+            {
+              "id": "_repo",
+              "group": "shared"
+            },
+            {
+              "id": "scoreBar",
+              "group": "shared"
+            },
+            {
+              "id": "read_word",
+              "group": "shared"
+            },
+            {
+              "id": "_subtree_hash",
+              "group": "shared"
+            },
+            {
+              "id": "_kgram_hashes",
+              "group": "shared"
+            },
+            {
+              "id": "median",
+              "group": "shared"
+            },
+            {
+              "id": "_normalise",
+              "group": "shared"
+            },
+            {
+              "id": "_count_branches_in_subtree",
+              "group": "shared"
+            },
+            {
+              "id": "tokenize",
+              "group": "shared"
+            },
+            {
+              "id": "std_dev",
+              "group": "shared"
+            },
+            {
+              "id": "_get_parser",
+              "group": "shared"
+            },
+            {
+              "id": "_touch",
+              "group": "shared"
+            },
+            {
+              "id": "reset",
+              "group": "shared"
+            },
+            {
+              "id": "_keep",
+              "group": "shared"
+            },
+            {
+              "id": "_subtree_fingerprints",
+              "group": "shared"
+            },
+            {
+              "id": "_fingerprint",
+              "group": "shared"
+            },
+            {
+              "id": "add",
+              "group": "shared"
+            },
+            {
+              "id": "peek",
+              "group": "shared"
+            },
+            {
+              "id": "scoreColor",
+              "group": "shared"
+            },
+            {
+              "id": "_jaccard",
+              "group": "shared"
+            },
+            {
+              "id": "_save_json",
+              "group": "shared"
+            },
+            {
+              "id": "mean",
+              "group": "shared"
+            },
+            {
+              "id": "_build_call_graph",
+              "group": "shared"
+            },
+            {
+              "id": "_degree_vector",
+              "group": "shared"
+            },
+            {
+              "id": "VocabularyBuilder",
+              "group": "shared"
+            },
+            {
+              "id": "_default_weights",
+              "group": "shared"
+            },
+            {
+              "id": "_make_zip",
+              "group": "shared"
+            },
+            {
+              "id": "advance",
+              "group": "shared"
+            },
+            {
+              "id": "scoreBg",
+              "group": "shared"
+            },
+            {
+              "id": "Lexer",
+              "group": "shared"
+            },
+            {
+              "id": "term_frequency",
+              "group": "shared"
+            }
+          ],
+          "edges": [
+            {
+              "source": "compare",
+              "target": "_subtree_hash",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "tokens",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "mean",
+              "target": "variance",
+              "repo": "shared"
+            },
+            {
+              "source": "tokenize",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_normalise",
+              "repo": "shared"
+            },
+            {
+              "source": "tokenize",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "tokens",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBar",
+              "target": "placeCol",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine_counters",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "add",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "TokenNgramMethod",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "lookup",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "CallGraphMethod",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "bigrams",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "parse",
+              "target": "_compile_query",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_call_graph",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_complexity_histogram",
+              "repo": "shared"
+            },
+            {
+              "source": "inverse_document_frequency",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "inverse_document_frequency",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "average",
+              "target": "median",
+              "repo": "shared"
+            },
+            {
+              "source": "_graph_similarity",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "_kgram_hashes",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "term_frequency",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "size",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "term_frequency",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreColor",
+              "target": "renderEdge",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_call_graph",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_get_parser",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard_multiset",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "VocabularyBuilder",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "median",
+              "target": "std_dev",
+              "repo": "shared"
+            },
+            {
+              "source": "CallGraphMethod",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "_compile_query",
+              "target": "_get_parser",
+              "repo": "shared"
+            },
+            {
+              "source": "mean",
+              "target": "median",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "advance",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "peek",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_count_branches_in_subtree",
+              "repo": "shared"
+            },
+            {
+              "source": "_count_branches_in_subtree",
+              "target": "_complexity_histogram",
+              "repo": "shared"
+            },
+            {
+              "source": "get_language",
+              "target": "_compile_query",
+              "repo": "shared"
+            },
+            {
+              "source": "get_language",
+              "target": "parse",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "_compile_query",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "average",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard_multiset",
+              "target": "_subtree_fingerprints",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "get_language",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_keep",
+              "repo": "shared"
+            },
+            {
+              "source": "lookup",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_file_lines",
+              "repo": "shared"
+            },
+            {
+              "source": "_compile_query",
+              "target": "get_language",
+              "repo": "shared"
+            },
+            {
+              "source": "std_dev",
+              "target": "mean",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_subtree_fingerprints",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBg",
+              "target": "scoreBar",
+              "repo": "shared"
+            },
+            {
+              "source": "tokens",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "bigrams",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "tokens",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "_subtree_fingerprints",
+              "target": "_jaccard_multiset",
+              "repo": "shared"
+            },
+            {
+              "source": "Lexer",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "median",
+              "repo": "shared"
+            },
+            {
+              "source": "_complexity_histogram",
+              "target": "_count_branches_in_subtree",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine_counters",
+              "target": "_complexity_histogram",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreColor",
+              "target": "scoreBg",
+              "repo": "shared"
+            },
+            {
+              "source": "_fingerprint",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_call_graph",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "_winnow",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "_tokenise",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "placeCol",
+              "target": "scoreBar",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "_subtree_hash",
+              "target": "_jaccard_multiset",
+              "repo": "shared"
+            },
+            {
+              "source": "_winnow",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "_get_parser",
+              "target": "_compile_query",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_cosine_counters",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_jaccard_multiset",
+              "repo": "shared"
+            },
+            {
+              "source": "tokenize",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "inverse_document_frequency",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "add",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "renderEdge",
+              "target": "scoreBg",
+              "repo": "shared"
+            },
+            {
+              "source": "term_frequency",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBg",
+              "target": "renderEdge",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "group",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "_degree_vector",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "CallGraphMethod",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "skip_whitespace",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            },
+            {
+              "source": "skip_whitespace",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "variance",
+              "target": "std_dev",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_call_graph",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "Lexer",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "std_dev",
+              "target": "variance",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "CallGraphMethod",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "_kgram_hashes",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "_kgram_hashes",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "_kgram_hashes",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "median",
+              "target": "variance",
+              "repo": "shared"
+            },
+            {
+              "source": "VocabularyBuilder",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "get_language",
+              "target": "_get_parser",
+              "repo": "shared"
+            },
+            {
+              "source": "lookup",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "tokenize",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "advance",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "peek",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "add",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_graph_export",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "_winnow",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            },
+            {
+              "source": "advance",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "variance",
+              "target": "mean",
+              "repo": "shared"
+            },
+            {
+              "source": "term_frequency",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "read_word",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "std_dev",
+              "target": "average",
+              "repo": "shared"
+            },
+            {
+              "source": "size",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "TokenNgramMethod",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "peek",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "tokens",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_graph_export",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "size",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "median",
+              "target": "mean",
+              "repo": "shared"
+            },
+            {
+              "source": "_kgram_hashes",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard_multiset",
+              "target": "_subtree_hash",
+              "repo": "shared"
+            },
+            {
+              "source": "renderEdge",
+              "target": "scoreColor",
+              "repo": "shared"
+            },
+            {
+              "source": "_winnow",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_graph_export",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "read_word",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "std_dev",
+              "target": "median",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "std_dev",
+              "repo": "shared"
+            },
+            {
+              "source": "CallGraphMethod",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "_fingerprint",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "_get_parser",
+              "target": "parse",
+              "repo": "shared"
+            },
+            {
+              "source": "read_word",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "_subtree_fingerprints",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "group",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreColor",
+              "target": "placeCol",
+              "repo": "shared"
+            },
+            {
+              "source": "_degree_vector",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "inverse_document_frequency",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "VocabularyBuilder",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "skip_whitespace",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "skip_whitespace",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "bigrams",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine_counters",
+              "target": "_count_branches_in_subtree",
+              "repo": "shared"
+            },
+            {
+              "source": "bigrams",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "advance",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "peek",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "parse",
+              "target": "_get_parser",
+              "repo": "shared"
+            },
+            {
+              "source": "term_frequency",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBar",
+              "target": "renderEdge",
+              "repo": "shared"
+            },
+            {
+              "source": "_subtree_hash",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_compile_query",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "parse",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "renderEdge",
+              "target": "placeCol",
+              "repo": "shared"
+            },
+            {
+              "source": "_graph_similarity",
+              "target": "_build_call_graph",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "tokens",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBg",
+              "target": "scoreColor",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_complexity_histogram",
+              "repo": "shared"
+            },
+            {
+              "source": "group",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "parse",
+              "target": "get_language",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "_degree_vector",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "_fingerprint",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "lookup",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "_subtree_hash",
+              "target": "_subtree_fingerprints",
+              "repo": "shared"
+            },
+            {
+              "source": "placeCol",
+              "target": "renderEdge",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_subtree_fingerprints",
+              "repo": "shared"
+            },
+            {
+              "source": "_tokenise",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "average",
+              "target": "std_dev",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_graph_export",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "_complexity_histogram",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "_count_branches_in_subtree",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "size",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "average",
+              "target": "variance",
+              "repo": "shared"
+            },
+            {
+              "source": "size",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "lookup",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_count_branches_in_subtree",
+              "repo": "shared"
+            },
+            {
+              "source": "_graph_similarity",
+              "target": "_build_graph_export",
+              "repo": "shared"
+            },
+            {
+              "source": "get_language",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "mean",
+              "target": "std_dev",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBar",
+              "target": "scoreBg",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "inverse_document_frequency",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_cosine_counters",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "read_word",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBg",
+              "target": "placeCol",
+              "repo": "shared"
+            },
+            {
+              "source": "Lexer",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "_fingerprint",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            },
+            {
+              "source": "variance",
+              "target": "average",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreColor",
+              "target": "scoreBar",
+              "repo": "shared"
+            },
+            {
+              "source": "Lexer",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "read_word",
+              "target": "skip_whitespace",
+              "repo": "shared"
+            },
+            {
+              "source": "placeCol",
+              "target": "scoreBg",
+              "repo": "shared"
+            },
+            {
+              "source": "_tokenise",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            },
+            {
+              "source": "_jaccard",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            },
+            {
+              "source": "_degree_vector",
+              "target": "group",
+              "repo": "shared"
+            },
+            {
+              "source": "median",
+              "target": "average",
+              "repo": "shared"
+            },
+            {
+              "source": "TokenNgramMethod",
+              "target": "_tokenise",
+              "repo": "shared"
+            },
+            {
+              "source": "bigrams",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "bigrams",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "TokenNgramMethod",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_subtree_hash",
+              "repo": "shared"
+            },
+            {
+              "source": "tokenize",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "_fingerprint",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "_complexity_histogram",
+              "target": "_cosine_counters",
+              "repo": "shared"
+            },
+            {
+              "source": "_count_branches_in_subtree",
+              "target": "_cosine_counters",
+              "repo": "shared"
+            },
+            {
+              "source": "tokenize",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "variance",
+              "target": "median",
+              "repo": "shared"
+            },
+            {
+              "source": "_tokenise",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "_cosine",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "add",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "variance",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_jaccard_multiset",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_call_graph",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "_tokenise",
+              "target": "_fingerprint",
+              "repo": "shared"
+            },
+            {
+              "source": "_get_parser",
+              "target": "walk",
+              "repo": "shared"
+            },
+            {
+              "source": "add",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "renderEdge",
+              "target": "scoreBar",
+              "repo": "shared"
+            },
+            {
+              "source": "CallGraphMethod",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "_get_parser",
+              "target": "get_language",
+              "repo": "shared"
+            },
+            {
+              "source": "inverse_document_frequency",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "group",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "skip_whitespace",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "walk",
+              "target": "parse",
+              "repo": "shared"
+            },
+            {
+              "source": "VocabularyBuilder",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "group",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "TokenNgramMethod",
+              "target": "_winnow",
+              "repo": "shared"
+            },
+            {
+              "source": "_degree_vector",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "_compile_query",
+              "target": "parse",
+              "repo": "shared"
+            },
+            {
+              "source": "lookup",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "__init__",
+              "target": "mean",
+              "repo": "shared"
+            },
+            {
+              "source": "scoreBar",
+              "target": "scoreColor",
+              "repo": "shared"
+            },
+            {
+              "source": "_subtree_fingerprints",
+              "target": "_subtree_hash",
+              "repo": "shared"
+            },
+            {
+              "source": "_graph_similarity",
+              "target": "_degree_vector",
+              "repo": "shared"
+            },
+            {
+              "source": "_keep",
+              "target": "_normalise",
+              "repo": "shared"
+            },
+            {
+              "source": "VocabularyBuilder",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "_normalise",
+              "target": "_keep",
+              "repo": "shared"
+            },
+            {
+              "source": "compare",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "VocabularyBuilder",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "Lexer",
+              "target": "add",
+              "repo": "shared"
+            },
+            {
+              "source": "Lexer",
+              "target": "term_frequency",
+              "repo": "shared"
+            },
+            {
+              "source": "peek",
+              "target": "advance",
+              "repo": "shared"
+            },
+            {
+              "source": "_graph_similarity",
+              "target": "_cosine",
+              "repo": "shared"
+            },
+            {
+              "source": "placeCol",
+              "target": "scoreColor",
+              "repo": "shared"
+            },
+            {
+              "source": "advance",
+              "target": "peek",
+              "repo": "shared"
+            },
+            {
+              "source": "_winnow",
+              "target": "_jaccard",
+              "repo": "shared"
+            },
+            {
+              "source": "size",
+              "target": "read_word",
+              "repo": "shared"
+            },
+            {
+              "source": "_build_graph_export",
+              "target": "_graph_similarity",
+              "repo": "shared"
+            },
+            {
+              "source": "TokenNgramMethod",
+              "target": "_kgram_hashes",
+              "repo": "shared"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "method_id": "import_analysis",
+      "score": 0.0551,
+      "weight": 0.0435,
+      "duration_ms": 3606,
+      "details": {
+        "shared_imports": [
+          "@testing-library",
+          "@vitejs",
+          "abc",
+          "app",
+          "asyncio",
+          "collections",
+          "dataclasses",
+          "datetime",
+          "fastapi",
+          "functools",
+          "git",
+          "hashlib",
+          "httpx",
+          "io",
+          "json",
+          "logging",
+          "math",
+          "pathlib",
+          "pydantic",
+          "pydantic_settings",
+          "pytest",
+          "pytest_asyncio",
+          "re",
+          "react",
+          "react-dom",
+          "shutil",
+          "socket",
+          "tempfile",
+          "tests",
+          "time"
+        ],
+        "shared_count": 38,
+        "unique_to_a": 0,
+        "unique_to_b": 652
+      }
+    },
+    {
+      "method_id": "identifier_similarity",
+      "score": 0.1309,
+      "weight": 0.0435,
+      "duration_ms": 2356,
+      "details": {
+        "shared_identifiers": [
+          "ABC",
+          "ALL_EXTENSIONS",
+          "ALL_METHODS",
+          "APIRouter",
+          "ARRAY_DETAIL_KEYS",
+          "ASGITransport",
+          "Any",
+          "App",
+          "Array",
+          "AssertionError",
+          "AstStructureMethod",
+          "AsyncClient",
+          "BASE_METHOD",
+          "BASIC_FM",
+          "BackgroundTasks",
+          "BaseModel",
+          "BaseSettings",
+          "Blob",
+          "BytesIO",
+          "CORSMiddleware",
+          "CX",
+          "CallGraphMethod",
+          "CallGraphViz",
+          "CompareRequest",
+          "CompareResult",
+          "ComparisonMethod",
+          "ComplexityProfileMethod",
+          "ConnectionPool",
+          "Counter",
+          "DEFAULT_TIMEOUT",
+          "DETAIL_LABELS",
+          "DataStats",
+          "DiGraph",
+          "Dict",
+          "DirectoryBrowser",
+          "EDGE_COLORS",
+          "Error",
+          "Exception",
+          "FIXTURES",
+          "FastAPI"
+        ],
+        "shared_count": 1106,
+        "unique_to_a": 0,
+        "unique_to_b": 7341
+      }
+    },
+    {
+      "method_id": "complexity_profile",
+      "score": 0.9808,
+      "weight": 0.0435,
+      "duration_ms": 2478,
+      "details": {
+        "complexity_cosine": 0.9808,
+        "a_func_count": 307,
+        "b_func_count": 3474
+      }
+    }
+  ],
+  "file_matches": [
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "Documents/PW/venv_dsk/Lib/site-packages/poetry/console/commands/source/update.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "Documents/PW/venv_dsk/Lib/site-packages/poetry/console/events/console_events.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "Documents/PW/venv_dsk/Lib/site-packages/poetry/layouts/standard.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "Documents/instaText/test.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/test-setup.ts",
+      "file_b_path": "Documents/instaText/vid-translator/frontend/src/test/setup.js",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "93ab7fc1199ffe70\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "Documents/lyfeco/risk_automate/base/sterling/tests.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "Documents/vid_transcribe/packages/frontend/src/vite-env.d.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/api.py",
+      "file_b_path": "code_compare_lite/backend/app/api.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "52ea7880d0120f28\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "code_compare_lite/backend/app/config.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "97bd052bbb0f411e\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "code_compare_lite/backend/app/main.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "3f5228cebd7da9f6\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/schemas.py",
+      "file_b_path": "code_compare_lite/backend/app/schemas.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "4783d0da34e68b7e\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/comparison.py",
+      "file_b_path": "code_compare_lite/backend/app/services/comparison.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "1dfab22c700c42a0\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/git_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/git_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "d262bad4418d76d5\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "2c6fb50edbf4595c\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/ast_structure.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "6530903ed2f15f5e\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/base.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/base.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "8df0d5f328995bb0\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/call_graph.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/call_graph.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "f012bb95cca84742\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/complexity_profile.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "de8f62a8a25b31c2\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/file_hash.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "cc816b1e026389fb\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/function_names.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/function_names.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e4956739bd06a30f\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/identifier_similarity.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/identifier_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "b441ea9ae603e1eb\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/import_analysis.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "8aefde66693b6dff\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/line_similarity.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/line_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "4bfc322055dc1c5a\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/token_ngram.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "881896a07942414a\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/parser.py",
+      "file_b_path": "code_compare_lite/backend/app/services/parser.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "69e4f8b57da89341\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/zip_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "9a5ee6bc21371c43\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/different_a/text_parser.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_a/text_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "9ad760b25e2b8cc8\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/different_b/http_client.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_b/http_client.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "64888d292025b7c5\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/identical_a/stats.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_a/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "9d28d276927949d1\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/identical_a/stats.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_b/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "9d28d276927949d1\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/similar_a/metrics.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_a/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "735d78ed71889549\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/similar_b/metrics.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_b/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "adef917123cb42de\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_api.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_api.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "c239f4b0be892a40\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "90f20bc59846342f\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_methods.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_methods.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "2ea0289d4e85c878\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_parser.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "938001af29fb3b1a\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_similarity_scores.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_similarity_scores.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "8a9111a474ff8065\u2026"
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_zip_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "0a290317dc9f0b0a\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/postcss.config.js",
+      "file_b_path": "code_compare_lite/frontend/postcss.config.js",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "5a07599e82a7f92c\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.test.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/App.test.tsx",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "081a3d886bd7da34\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/App.tsx",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e2fd8fcde0ac9122\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/main.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/main.tsx",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "0176141662d93dbc\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/test-setup.ts",
+      "file_b_path": "code_compare_lite/frontend/src/test-setup.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "93ab7fc1199ffe70\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "code_compare_lite/frontend/src/vite-env.d.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/tailwind.config.js",
+      "file_b_path": "code_compare_lite/frontend/tailwind.config.js",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "6f788d49d369769c\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "code_compare_lite/frontend/vite.config.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "7558f6adbc873cca\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/vitest.config.ts",
+      "file_b_path": "code_compare_lite/frontend/vitest.config.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "66f2b73bedcf0235\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/vite-env.d.ts",
+      "file_b_path": "code_comparison/frontend/src/vite-env.d.ts",
+      "similarity_score": 1.0,
+      "method_id": "file_hash",
+      "detail": {
+        "hash": "e3b0c44298fc1c14\u2026"
+      }
+    },
+    {
+      "file_a_path": "frontend/src/test-setup.ts",
+      "file_b_path": "Documents/instaText/vid-translator/frontend/src/test/setup.js",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 1,
+        "total_b_lines": 1,
+        "sample_matches": [
+          "import \"@testing-library/jest-dom\";"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/api.py",
+      "file_b_path": "code_compare_lite/backend/app/api.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 82,
+        "total_b_lines": 82,
+        "sample_matches": [
+          "\"created_at\": datetime.now(timezone.utc).isoformat(),",
+          "\"dirs\": [{\"name\": c.name, \"path\": str(c)} for c in dirs],",
+          "\"error\": str(exc),",
+          "\"job_id\": job_id,",
+          "\"parent\": str(p.parent) if p.parent != p else None,",
+          "\"path\": str(p),",
+          "\"status\": \"failed\",",
+          "\"traceback\": tb,",
+          "(c for c in p.iterdir() if c.is_dir() and not c.name.startswith(\".\")),",
+          "@router.get(\"/browse\")"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "code_compare_lite/backend/app/config.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 4,
+        "total_b_lines": 4,
+        "sample_matches": [
+          "class Settings(BaseSettings):",
+          "from pydantic_settings import BaseSettings",
+          "output_dir: str = \"/output\"",
+          "settings = Settings()"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "code_compare_lite/backend/app/main.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 17,
+        "total_b_lines": 17,
+        "sample_matches": [
+          "@app.get(\"/health\")",
+          "CORSMiddleware,",
+          "allow_headers=[\"*\"],",
+          "allow_methods=[\"*\"],",
+          "allow_origins=[\"*\"],",
+          "app = FastAPI(title=\"Code Compare Lite\")",
+          "app.add_middleware(",
+          "app.include_router(router)",
+          "async def health():",
+          "format=\"%(asctime)s %(levelname)s %(name)s %(message)s\","
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/schemas.py",
+      "file_b_path": "code_compare_lite/backend/app/schemas.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 35,
+        "total_b_lines": 35,
+        "sample_matches": [
+          "class CompareRequest(BaseModel):",
+          "class CompareResult(BaseModel):",
+          "class FileMatch(BaseModel):",
+          "class JobStatus(BaseModel):",
+          "class MethodResult(BaseModel):",
+          "class RepoSource(BaseModel):",
+          "created_at: str",
+          "details: dict = {}",
+          "duration_ms: int",
+          "error: Optional[str] = None"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/comparison.py",
+      "file_b_path": "code_compare_lite/backend/app/services/comparison.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 119,
+        "total_b_lines": 119,
+        "sample_matches": [
+          "\"created_at\": datetime.now(timezone.utc).isoformat(),",
+          "\"detail\": fm.detail,",
+          "\"details\": result.details,",
+          "\"details\": {\"error\": str(exc), \"traceback\": tb},",
+          "\"duration_ms\": duration_ms,",
+          "\"file_a_path\": fm.file_a,",
+          "\"file_b_path\": fm.file_b,",
+          "\"file_matches\": sorted(file_matches, key=lambda x: x[\"similarity_score\"], reverse=True)[:200],",
+          "\"files_found_a\": len(files_a),",
+          "\"files_found_b\": len(files_b),"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/git_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/git_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 6,
+        "total_b_lines": 6,
+        "sample_matches": [
+          "GitRepo.clone_from(url, into, depth=1)",
+          "def clone_repo(url: str, into: str) -> Path:",
+          "from git import Repo as GitRepo",
+          "from pathlib import Path",
+          "import tempfile",
+          "return Path(into)"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 31,
+        "total_b_lines": 31,
+        "sample_matches": [
+          "\"\"\"Return 'python', 'javascript', or 'mixed' based on file extensions found.\"\"\"",
+          "\".git\", \".hg\", \".svn\", \"__pycache__\", \".mypy_cache\",",
+          "\".pytest_cache\", \".ruff_cache\",",
+          "\"dist\", \"build\", \".next\", \".nuxt\", \"coverage\",",
+          "\"javascript\": {\".js\", \".ts\", \".jsx\", \".tsx\", \".mjs\", \".cjs\"},",
+          "\"node_modules\", \".venv\", \"venv\", \"env\", \".env\",",
+          "\"python\": {\".py\"},",
+          "ALL_EXTENSIONS: set[str] = {ext for exts in LANGUAGE_EXTENSIONS.values() for ext in exts}",
+          "IGNORED_DIRS = {",
+          "LANGUAGE_EXTENSIONS: dict[str, set[str]] = {"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/ast_structure.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 67,
+        "total_b_lines": 67,
+        "sample_matches": [
+          "\"\"\"Recursively hash the structural shape of an AST subtree.\"\"\"",
+          "\"identifier\", \"string\", \"integer\", \"float\", \"comment\",",
+          "\"string_content\", \"escape_sequence\",",
+          "AST structural similarity.",
+          "Serialises the AST of each file into a sequence of node types (identifiers",
+          "_STRIP_TYPES = {",
+          "child_hashes = \"\".join(_subtree_hash(c, src) for c in node.children)",
+          "class AstStructureMethod(ComparisonMethod):",
+          "combined = node.type + child_hashes",
+          "counts: Counter = Counter()"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/base.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/base.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 25,
+        "total_b_lines": 25,
+        "sample_matches": [
+          "\"\"\"Abstract base for all comparison methods.\"\"\"",
+          ") -> MethodResult:",
+          "@abstractmethod",
+          "@dataclass",
+          "class ComparisonMethod(ABC):",
+          "class FileMatch:",
+          "class MethodResult:",
+          "def compare(",
+          "default_weight: float = 0.1",
+          "detail: dict = field(default_factory=dict)"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/call_graph.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/call_graph.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 143,
+        "total_b_lines": 143,
+        "sample_matches": [
+          "\"\"\",",
+          "\"\"\"Produce a node/edge dict suitable for frontend graph visualization.\"\"\"",
+          "\"avg_call_graph_sim\": round(score, 4),",
+          "\"graph\": graph_data,",
+          "(call function: (attribute attribute: (identifier) @callee))",
+          "(call function: (identifier) @callee)",
+          "(call_expression function: (identifier) @callee)",
+          "(call_expression function: (member_expression property: (property_identifier) @callee))",
+          "- edges = function A calls function B",
+          "- nodes = function/method names"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/complexity_profile.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 66,
+        "total_b_lines": 66,
+        "sample_matches": [
+          "\"a_func_count\": sum(hist_a.values()),",
+          "\"arrow_function\",",
+          "\"b_func_count\": sum(hist_b.values()),",
+          "\"complexity_cosine\": round(score, 4),",
+          "\"conditional_expression\",",
+          "\"function_definition\", \"function_declaration\", \"method_definition\",",
+          "\"if_statement\", \"elif_clause\", \"for_statement\", \"while_statement\",",
+          "\"if_statement\", \"for_statement\", \"while_statement\", \"do_statement\",",
+          "\"try_statement\", \"catch_clause\", \"switch_case\", \"ternary_expression\",",
+          "\"try_statement\", \"except_clause\", \"with_statement\", \"match_statement\","
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/file_hash.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 69,
+        "total_b_lines": 69,
+        "sample_matches": [
+          "\"__init__.py\",",
+          "\"__main__.py\",",
+          "\"conftest.py\",",
+          "\"index.cjs\",",
+          "\"index.js\",",
+          "\"index.jsx\",",
+          "\"index.mjs\",",
+          "\"index.ts\",",
+          "\"index.tsx\",",
+          "\"setup.py\","
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/function_names.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/function_names.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 49,
+        "total_b_lines": 49,
+        "sample_matches": [
+          "\"shared_count\": len(shared),",
+          "\"shared_names\": shared[:50],",
+          "\"unique_to_a\": len(names_a - names_b),",
+          "\"unique_to_b\": len(names_b - names_a),",
+          "Collects all function and class names from both repos, computes Jaccard",
+          "Function / class / method name overlap.",
+          "best_fa = None",
+          "best_fa = fa",
+          "best_score = 0.0",
+          "best_score = s"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/identifier_similarity.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/identifier_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 30,
+        "total_b_lines": 30,
+        "sample_matches": [
+          "\"shared_count\": len(shared),",
+          "\"shared_identifiers\": shared[:40],",
+          "\"unique_to_a\": len(ids_a - ids_b),",
+          "\"unique_to_b\": len(ids_b - ids_a),",
+          "Extracts all non-keyword identifiers from both repos and computes Jaccard",
+          "Variable / identifier name similarity.",
+          "class IdentifierSimilarityMethod(ComparisonMethod):",
+          "def compare(self, root_a, files_a, root_b, files_b):",
+          "default_weight = 0.05",
+          "details={"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/import_analysis.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 64,
+        "total_b_lines": 64,
+        "sample_matches": [
+          "\"\"\",",
+          "\"shared_count\": len(shared),",
+          "\"shared_imports\": shared[:30],",
+          "\"unique_to_a\": len(imports_a - imports_b),",
+          "\"unique_to_b\": len(imports_b - imports_a),",
+          "(call_expression function: (identifier) @require",
+          "(import_from_statement module_name: (dotted_name) @module)",
+          "(import_from_statement module_name: (relative_import) @module)",
+          "(import_statement (dotted_name) @module)",
+          "(import_statement source: (string (string_fragment) @module))"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/line_similarity.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/line_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 83,
+        "total_b_lines": 83,
+        "sample_matches": [
+          "\"all_b_lines_char_length\": _len_stats(all_b_lines),",
+          "\"avg\": round(sum(lengths) / len(lengths), 1),",
+          "\"matched_lines\": n_matched,",
+          "\"matched_lines\": total_matched,",
+          "\"matched_lines_char_length\": _len_stats(all_matched_lines),",
+          "\"max\": max(lengths),",
+          "\"min\": min(lengths),",
+          "\"sample_matches\": sorted(matched)[:10],",
+          "\"top_matched_lines\": [",
+          "\"total_b_lines\": n_total,"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/token_ngram.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 82,
+        "total_b_lines": 82,
+        "sample_matches": [
+          "\"block_comment\": _SKIP,",
+          "\"comment\": _SKIP,",
+          "\"float\": \"NUM\",",
+          "\"identifier\": \"ID\",",
+          "\"integer\": \"NUM\",",
+          "\"line_comment\": _SKIP,",
+          "\"string\": \"STR\",",
+          "\"string_content\": \"STR\",",
+          "1. Tokenise each file using tree-sitter leaf nodes (type stripped to category).",
+          "2. Build k-grams and hash each."
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/parser.py",
+      "file_b_path": "code_compare_lite/backend/app/services/parser.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 90,
+        "total_b_lines": 90,
+        "sample_matches": [
+          "\"\"\",",
+          "\".cjs\": JS_LANGUAGE,",
+          "\".js\": JS_LANGUAGE,",
+          "\".jsx\": JS_LANGUAGE,",
+          "\".mjs\": JS_LANGUAGE,",
+          "\".py\": PY_LANGUAGE,",
+          "\".ts\": TS_LANGUAGE,",
+          "\".tsx\": TSX_LANGUAGE,",
+          "\"break\", \"continue\", \"yield\", \"lambda\", \"None\", \"True\", \"False\",",
+          "\"def\", \"class\", \"return\", \"import\", \"from\", \"if\", \"else\", \"elif\","
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/zip_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 11,
+        "total_b_lines": 11,
+        "sample_matches": [
+          "children = [c for c in root.iterdir()]",
+          "def extract_zip(zip_bytes: bytes, into: str) -> Path:",
+          "from pathlib import Path",
+          "if len(children) == 1 and children[0].is_dir():",
+          "import io",
+          "import zipfile",
+          "return children[0]",
+          "return root",
+          "root = Path(into)",
+          "with zipfile.ZipFile(io.BytesIO(zip_bytes)) as zf:"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "code_compare_lite/backend/tests/conftest.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 34,
+        "total_b_lines": 34,
+        "sample_matches": [
+          "\"\"\"POST /compare with two local fixture paths and poll until done.\"\"\"",
+          "\"\"\"Redirect JSON output to a per-test temp dir so output/ is never written during tests.\"\"\"",
+          "\"repo_a\": {\"name\": path_a.name, \"source\": \"local\", \"path\": str(path_a)},",
+          "\"repo_b\": {\"name\": path_b.name, \"source\": \"local\", \"path\": str(path_b)},",
+          "@pytest.fixture(autouse=True)",
+          "@pytest_asyncio.fixture",
+          "FIXTURES = Path(__file__).parent / \"fixtures\"",
+          "assert resp.status_code == 200, f\"POST /compare failed: {resp.text}\"",
+          "async def client():",
+          "async def run_comparison(client: AsyncClient, path_a: Path, path_b: Path) -> dict:"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/different_a/text_parser.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_a/text_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 75,
+        "total_b_lines": 75,
+        "sample_matches": [
+          "\"\"\"Token-level text parsing and lexical analysis.\"\"\"",
+          ") -> Dict[str, float]:",
+          "PUNCTUATION = re.compile(r\"[^\\w\\s]\")",
+          "WHITESPACE = re.compile(r\"\\s+\")",
+          "break",
+          "char = self.peek()",
+          "class Lexer:",
+          "class VocabularyBuilder:",
+          "cleaned = PUNCTUATION.sub(\" \", text.lower())",
+          "counts = Counter(tokens)"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/different_b/http_client.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_b/http_client.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 79,
+        "total_b_lines": 79,
+        "sample_matches": [
+          "\"\"\"Minimal HTTP client and request/response abstractions.\"\"\"",
+          "DEFAULT_TIMEOUT = 30",
+          "MAX_REDIRECTS = 5",
+          "USER_AGENT = \"CodeCompareClient/1.0\"",
+          "charset = \"utf-8\"",
+          "charset = charset.split(\"charset=\")[-1].strip()",
+          "charset = self.headers.get(\"content-type\", \"utf-8\")",
+          "class ConnectionPool:",
+          "class HttpResponse:",
+          "class RetryPolicy:"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/identical_a/stats.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_a/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 68,
+        "total_b_lines": 68,
+        "sample_matches": [
+          "\"\"\"Statistical analysis utilities.\"\"\"",
+          "\"count\": len(self.data),",
+          "\"max\": max(self.data) if self.data else None,",
+          "\"mean\": self.mean(),",
+          "\"median\": self.median(),",
+          "\"min\": min(self.data) if self.data else None,",
+          "\"std_dev\": self.std_dev(),",
+          "chunk = data[start : i + 1]",
+          "class Statistics:",
+          "def __init__(self, data: List[float]):"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/identical_a/stats.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_b/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 68,
+        "total_b_lines": 68,
+        "sample_matches": [
+          "\"\"\"Statistical analysis utilities.\"\"\"",
+          "\"count\": len(self.data),",
+          "\"max\": max(self.data) if self.data else None,",
+          "\"mean\": self.mean(),",
+          "\"median\": self.median(),",
+          "\"min\": min(self.data) if self.data else None,",
+          "\"std_dev\": self.std_dev(),",
+          "chunk = data[start : i + 1]",
+          "class Statistics:",
+          "def __init__(self, data: List[float]):"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/similar_a/metrics.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_a/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 68,
+        "total_b_lines": 68,
+        "sample_matches": [
+          "\"\"\"Numerical metrics and data scaling utilities.\"\"\"",
+          "\"average\": self.average(),",
+          "\"maximum\": max(self.values) if self.values else None,",
+          "\"median\": self.median(),",
+          "\"minimum\": min(self.values) if self.values else None,",
+          "\"n\": len(self.values),",
+          "\"std_dev\": self.std_dev(),",
+          "avg = self.average()",
+          "avg = sum(values) / len(values)",
+          "class MetricSummary:"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/similar_b/metrics.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_b/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 70,
+        "total_b_lines": 70,
+        "sample_matches": [
+          "\"\"\"Data analysis helpers for numerical datasets.\"\"\"",
+          "\"count\": len(self.dataset),",
+          "\"max\": max(self.dataset) if self.dataset else None,",
+          "\"mean\": self.mean(),",
+          "\"median\": self.median(),",
+          "\"min\": min(self.dataset) if self.dataset else None,",
+          "\"std_dev\": self.std_dev(),",
+          "averaged = []",
+          "averaged.append(sum(window) / len(window))",
+          "begin = max(0, idx - span + 1)"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_api.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_api.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 79,
+        "total_b_lines": 79,
+        "sample_matches": [
+          "\"\"\"Completed job writes a JSON file to the output directory.\"\"\"",
+          "\"\"\"Tests for API endpoints (api.py).\"\"\"",
+          "\"/compare/upload\",",
+          "\"repo_a\": {\"name\": \"a\", \"source\": \"local\", \"path\": \"/nonexistent/path/a\"},",
+          "\"repo_a\": {\"name\": \"a\", \"source\": \"local\", \"path\": str(FIXTURES / \"identical_a\")},",
+          "\"repo_b\": {\"name\": \"b\", \"source\": \"local\", \"path\": \"/nonexistent/path/b\"},",
+          "\"repo_b\": {\"name\": \"b\", \"source\": \"local\", \"path\": str(FIXTURES / \"identical_b\")},",
+          "assert \"job_id\" in data",
+          "assert \"job_id\" in resp.json()",
+          "assert data[\"error\"] is None"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 80,
+        "total_b_lines": 80,
+        "sample_matches": [
+          "\"\"\"Create empty files at the given relative paths under root.\"\"\"",
+          "\"\"\"Tests for file collection and language detection (ingestion.py).\"\"\"",
+          "_touch(tmp_path, \"Script.PY\", \"Module.JS\")",
+          "_touch(tmp_path, \"a.js\", \"b.ts\", \"c.jsx\", \"d.tsx\", \"e.mjs\", \"f.cjs\")",
+          "_touch(tmp_path, \"a.py\", \"b.py\", \"sub/c.py\")",
+          "_touch(tmp_path, \"app.py\")",
+          "_touch(tmp_path, \"app.py\", \"README.md\", \"image.png\", \"data.json\", \"style.css\")",
+          "_touch(tmp_path, \"app.py\", \"venv/lib/site.py\", \".venv/lib/compat.py\", \"env/util.py\")",
+          "_touch(tmp_path, \"main.py\")",
+          "_touch(tmp_path, \"server.py\", \"client.js\", \"types.ts\")"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_methods.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_methods.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 280,
+        "total_b_lines": 280,
+        "sample_matches": [
+          "\"\"\"AST structure ignores names, so renaming should not lower score much.\"\"\"",
+          "\"\"\"Create a labelled repo directory containing the given files.\"\"\"",
+          "\"\"\"Every filename in the ignore list is excluded from scoring.\"\"\"",
+          "\"\"\"If every file in both repos is on the ignore list, score is 0.\"\"\"",
+          "\"\"\"Reversed-line content should score the same as original.\"\"\"",
+          "\"\"\"Token categories normalize identifiers, so renaming should not hugely affect score.\"\"\"",
+          "\"\"\"__init__.py and other boilerplate files must not be scored.\"\"\"",
+          "\"__init__.py\", \"__main__.py\", \"conftest.py\", \"setup.py\",",
+          "\"index.js\", \"index.ts\", \"index.jsx\", \"index.tsx\", \"index.mjs\", \"index.cjs\",",
+          "@pytest.fixture(autouse=True)"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_parser.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 106,
+        "total_b_lines": 106,
+        "sample_matches": [
+          "\"\"\"Unit tests for app/services/parser.py.\"\"\"",
+          "(\".cjs\", JS_LANGUAGE),",
+          "(\".js\", JS_LANGUAGE),",
+          "(\".jsx\", JS_LANGUAGE),",
+          "(\".mjs\", JS_LANGUAGE),",
+          "(\".py\", PY_LANGUAGE),",
+          "(\".ts\", TS_LANGUAGE),",
+          "(\".tsx\", TSX_LANGUAGE),",
+          "@pytest.mark.parametrize(\"ext,expected\", [",
+          "PY_LANGUAGE, JS_LANGUAGE, TS_LANGUAGE, TSX_LANGUAGE,"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_similarity_scores.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_similarity_scores.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 113,
+        "total_b_lines": 113,
+        "sample_matches": [
+          "\"\"\"Completely unrelated codebases must score < 0.20.\"\"\"",
+          "\"\"\"Exact file copies must score > 0.85 across all methods.\"\"\"",
+          "\"\"\"No method should record an error field for valid repos.\"\"\"",
+          "\"\"\"Result must include how many files were indexed per repo.\"\"\"",
+          "\"\"\"Same algorithms with renamed identifiers must score between 0.30 and 0.85.\"\"\"",
+          "\"\"\"file_hash method must return 1.0 for exact copies.\"\"\"",
+          "\"\"\"file_hash must return 0.0 for completely different codebases.\"\"\"",
+          "\"\"\"function_names details must list shared names for identical repos.\"\"\"",
+          "\"\"\"identical > similar > different \u2014 all three must be distinct.\"\"\"",
+          "\"\"\"line_similarity file matches must include matched_lines and sample_matches.\"\"\""
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_zip_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 39,
+        "total_b_lines": 39,
+        "sample_matches": [
+          "\"\"\"A zip with multiple root items should not be unwrapped.\"\"\"",
+          "\"\"\"A zip with one root directory should be unwrapped to that directory.\"\"\"",
+          "\"\"\"Build an in-memory zip from a dict of path \u2192 content.\"\"\"",
+          "\"\"\"Unit tests for app/services/zip_ingestion.py.\"\"\"",
+          "assert (root / \"a.py\").exists()",
+          "assert (root / \"a.py\").exists() or (root.name == \"myproject\")",
+          "assert (root / \"a.py\").read_text() == \"x = 1\\n\"",
+          "assert (root / \"b.py\").exists()",
+          "assert (root / \"b.py\").read_text() == \"y = 2\\n\"",
+          "assert (root / \"main.py\").exists()"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/postcss.config.js",
+      "file_b_path": "code_compare_lite/frontend/postcss.config.js",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 2,
+        "total_b_lines": 2,
+        "sample_matches": [
+          "export default {",
+          "plugins: { tailwindcss: {}, autoprefixer: {} },"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.test.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/App.test.tsx",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 199,
+        "total_b_lines": 199,
+        "sample_matches": [
+          "(fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({",
+          "<CallGraphViz graph={GRAPH_DATA} nameA=\"RepoA\" nameB=\"RepoB\" />",
+          "<CallGraphViz graph={{ nodes: [], edges: [] }} nameA=\"A\" nameB=\"B\" />",
+          "CallGraphViz, SharedPills, FilePairDetail, MethodCard,",
+          "Pct, MiniBar,",
+          "await user.click(screen.getByRole(\"button\", { name: /run comparison/i }));",
+          "await user.click(screen.getByText(\"+6 more\"));",
+          "await user.click(screen.getByText(\"Exact File Hash\"));",
+          "await user.click(screen.getByText(\"code\"));",
+          "await user.click(screen.getByText(\"hide\"));"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/App.tsx",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 593,
+        "total_b_lines": 593,
+        "sample_matches": [
+          "(blocks.length === 0 && sharedFns.length === 0 && Object.keys(fm.detail ?? {}).length > 0);",
+          "(matchesByMethod[fm.method_id] ??= []).push(fm);",
+          ") : (",
+          "+{items.length - limit} more",
+          ".filter(([k, v]) => !ARRAY_DETAIL_KEYS.has(k) && k !== \"error\" && DETAIL_LABELS[k] != null && v != null)",
+          ".map(([k, v]) => ({ label: DETAIL_LABELS[k], raw: k, value: String(v) }));",
+          "</button>",
+          "</defs>",
+          "</div>",
+          "</form>"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/src/main.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/main.tsx",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 8,
+        "total_b_lines": 8,
+        "sample_matches": [
+          "</React.StrictMode>",
+          "<App />",
+          "<React.StrictMode>",
+          "ReactDOM.createRoot(document.getElementById(\"root\")!).render(",
+          "import \"./index.css\";",
+          "import App from \"./App\";",
+          "import React from \"react\";",
+          "import ReactDOM from \"react-dom/client\";"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/src/test-setup.ts",
+      "file_b_path": "code_compare_lite/frontend/src/test-setup.ts",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 1,
+        "total_b_lines": 1,
+        "sample_matches": [
+          "import \"@testing-library/jest-dom\";"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/tailwind.config.js",
+      "file_b_path": "code_compare_lite/frontend/tailwind.config.js",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 4,
+        "total_b_lines": 4,
+        "sample_matches": [
+          "content: [\"./index.html\", \"./src/**/*.{js,ts,jsx,tsx}\"],",
+          "export default {",
+          "plugins: [],",
+          "theme: { extend: {} },"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/vite.config.ts",
+      "file_b_path": "code_compare_lite/frontend/vite.config.ts",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 11,
+        "total_b_lines": 11,
+        "sample_matches": [
+          "\"/api\": {",
+          "changeOrigin: true,",
+          "export default defineConfig({",
+          "import react from \"@vitejs/plugin-react\";",
+          "import { defineConfig } from \"vite\";",
+          "plugins: [react()],",
+          "port: 5173,",
+          "proxy: {",
+          "rewrite: (path) => path.replace(/^\\/api/, \"\"),",
+          "server: {"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/vitest.config.ts",
+      "file_b_path": "code_compare_lite/frontend/vitest.config.ts",
+      "similarity_score": 1.0,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 8,
+        "total_b_lines": 8,
+        "sample_matches": [
+          "environment: \"jsdom\",",
+          "export default defineConfig({",
+          "globals: true,",
+          "import react from \"@vitejs/plugin-react\";",
+          "import { defineConfig } from \"vitest/config\";",
+          "plugins: [react()],",
+          "setupFiles: [\"./src/test-setup.ts\"],",
+          "test: {"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "Documents/Sockie/backend/config.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Settings"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "Documents/facili_T/backend/app/core/config.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Settings"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "Documents/tokwatch/backend/config/urls.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "health"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/api.py",
+      "file_b_path": "code_compare_lite/backend/app/api.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "_run_job",
+          "_run_zip_job",
+          "_save_json",
+          "browse_directory",
+          "create_comparison",
+          "create_comparison_upload",
+          "get_job"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "code_compare_lite/backend/app/config.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Settings"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "code_compare_lite/backend/app/main.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "health"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/schemas.py",
+      "file_b_path": "code_compare_lite/backend/app/schemas.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "CompareRequest",
+          "CompareResult",
+          "FileMatch",
+          "JobStatus",
+          "MethodResult",
+          "RepoSource"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/comparison.py",
+      "file_b_path": "code_compare_lite/backend/app/services/comparison.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "_default_weights",
+          "_resolve_path",
+          "run_comparison"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/git_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/git_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "clone_repo"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "collect_files",
+          "detect_language"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/ast_structure.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "AstStructureMethod",
+          "_jaccard_multiset",
+          "_subtree_fingerprints",
+          "_subtree_hash",
+          "compare",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/base.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/base.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ComparisonMethod",
+          "FileMatch",
+          "MethodResult",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/call_graph.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/call_graph.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "CallGraphMethod",
+          "_build_call_graph",
+          "_build_graph_export",
+          "_cosine",
+          "_degree_vector",
+          "_graph_similarity",
+          "compare",
+          "group",
+          "priority"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/complexity_profile.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ComplexityProfileMethod",
+          "_complexity_histogram",
+          "_cosine_counters",
+          "_count_branches_in_subtree",
+          "compare",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/file_hash.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "FileHashMethod",
+          "_hash_file",
+          "_keep",
+          "_normalise",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/function_names.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/function_names.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "FunctionNamesMethod",
+          "_jaccard",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/identifier_similarity.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/identifier_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "IdentifierSimilarityMethod",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/import_analysis.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ImportAnalysisMethod",
+          "_extract_imports",
+          "_jaccard",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/line_similarity.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/line_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "LineSimilarityMethod",
+          "_file_lines",
+          "_len_stats",
+          "_normalise_line",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/token_ngram.py",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "TokenNgramMethod",
+          "_fingerprint",
+          "_jaccard",
+          "_kgram_hashes",
+          "_tokenise",
+          "_winnow",
+          "compare",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/parser.py",
+      "file_b_path": "code_compare_lite/backend/app/services/parser.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "_compile_query",
+          "_get_parser",
+          "extract_function_names",
+          "extract_identifiers",
+          "get_language",
+          "parse",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/zip_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/app/services/zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "extract_zip"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/conftest.py",
+      "file_b_path": "code_compare_lite/backend/tests/conftest.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "_redirect_output",
+          "client",
+          "run_comparison"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/different_a/text_parser.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_a/text_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Lexer",
+          "VocabularyBuilder",
+          "__init__",
+          "add",
+          "advance",
+          "bigrams",
+          "encode",
+          "inverse_document_frequency",
+          "lookup",
+          "peek",
+          "read_word",
+          "size",
+          "skip_whitespace",
+          "term_frequency",
+          "tfidf",
+          "tokenize",
+          "tokens"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/different_b/http_client.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_b/http_client.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ConnectionPool",
+          "HttpResponse",
+          "RetryPolicy",
+          "__init__",
+          "__repr__",
+          "acquire",
+          "build_query_string",
+          "close_all",
+          "encode_json_body",
+          "json",
+          "next_attempt",
+          "ok",
+          "parse_headers",
+          "release",
+          "reset",
+          "should_retry",
+          "text"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/identical_a/stats.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_a/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Statistics",
+          "__init__",
+          "mean",
+          "median",
+          "moving_average",
+          "normalize_values",
+          "percentile",
+          "std_dev",
+          "summary",
+          "variance",
+          "z_scores"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/identical_a/stats.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_b/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Statistics",
+          "__init__",
+          "mean",
+          "median",
+          "moving_average",
+          "normalize_values",
+          "percentile",
+          "std_dev",
+          "summary",
+          "variance",
+          "z_scores"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/similar_a/metrics.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_a/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "MetricSummary",
+          "__init__",
+          "average",
+          "median",
+          "quantile",
+          "report",
+          "rolling_mean",
+          "scale_to_unit",
+          "standard_scores",
+          "std_dev",
+          "variance"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/fixtures/similar_b/metrics.py",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_b/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "DataStats",
+          "__init__",
+          "compute_percentile",
+          "compute_z_scores",
+          "describe",
+          "mean",
+          "median",
+          "rescale_data",
+          "sliding_average",
+          "std_dev",
+          "variance"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_api.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_api.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "_make_zip",
+          "test_compare_bad_payload_returns_422",
+          "test_compare_invalid_local_path_fails",
+          "test_compare_job_id_is_unique",
+          "test_compare_returns_job_id",
+          "test_get_job_completes",
+          "test_get_job_initially_running",
+          "test_get_job_missing_returns_404",
+          "test_health_check",
+          "test_result_saved_to_json",
+          "test_upload_job_completes",
+          "test_upload_returns_job_id"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "TestCollectFiles",
+          "TestDetectLanguage",
+          "_touch",
+          "test_collects_js_extensions",
+          "test_collects_py_files",
+          "test_collects_python_and_js_together",
+          "test_empty_dir_returns_empty_list",
+          "test_extension_matching_is_case_insensitive",
+          "test_ignores_dist_and_build",
+          "test_ignores_git_dir",
+          "test_ignores_node_modules",
+          "test_ignores_non_source_extensions",
+          "test_ignores_pycache",
+          "test_ignores_venv_dirs",
+          "test_javascript_js",
+          "test_jsx",
+          "test_mixed_py_and_js",
+          "test_mixed_py_and_ts",
+          "test_mjs_and_cjs",
+          "test_python_only",
+          "test_returns_sorted",
+          "test_tsx",
+          "test_typescript",
+          "test_unknown_for_empty_list",
+          "test_unknown_for_unrecognised_extensions"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_methods.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_methods.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "TestAstStructureMethod",
+          "TestCallGraphMethod",
+          "TestComplexityProfileMethod",
+          "TestFileHashMethod",
+          "TestFunctionNamesMethod",
+          "TestIdentifierSimilarityMethod",
+          "TestImportAnalysisMethod",
+          "TestLineSimilarityMethod",
+          "TestTokenNgramMethod",
+          "_method",
+          "_repo",
+          "test_all_ignored_files_returns_zero",
+          "test_blank_lines_stripped_still_matches",
+          "test_comment_only_lines_excluded",
+          "test_comments_stripped_still_matches",
+          "test_details_include_counts",
+          "test_details_include_func_counts",
+          "test_details_include_params",
+          "test_details_include_shared_identifiers",
+          "test_details_include_unique_counts",
+          "test_different_code_lower_score",
+          "test_different_files_score_zero",
+          "test_different_identifiers_low_score",
+          "test_different_structure_low_score",
+          "test_each_ignored_filename_is_skipped",
+          "test_empty_files_b_returns_zero",
+          "test_empty_files_b_score_zero",
+          "test_empty_files_returns_zero",
+          "test_empty_files_score_zero",
+          "test_empty_inputs_returns_zero"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_parser.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "TestExtractFunctionNames",
+          "TestExtractIdentifiers",
+          "TestGetLanguage",
+          "TestParse",
+          "test_empty_file_returns_empty_list",
+          "test_empty_file_returns_empty_set",
+          "test_excludes_keywords",
+          "test_extension_case_insensitive",
+          "test_includes_function_name",
+          "test_includes_variable_names",
+          "test_js_class",
+          "test_js_function_declaration",
+          "test_known_extensions",
+          "test_missing_file_returns_empty_list",
+          "test_missing_file_returns_empty_set",
+          "test_no_extension_returns_none",
+          "test_no_functions_returns_empty_set",
+          "test_parse_empty_file",
+          "test_parse_missing_file_returns_none",
+          "test_parse_returns_root_node_and_bytes",
+          "test_parse_unknown_extension_returns_none",
+          "test_parse_valid_js",
+          "test_parse_valid_python",
+          "test_parse_valid_ts",
+          "test_python_class",
+          "test_python_function",
+          "test_python_multiple",
+          "test_returns_duplicates",
+          "test_ts_function",
+          "test_unknown_extension_returns_empty_list"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_similarity_scores.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_similarity_scores.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "_method_summary",
+          "test_different_repos_do_not_share_score_with_similar",
+          "test_different_repos_score_low",
+          "test_file_counts_reported",
+          "test_file_hash_detects_identical_files",
+          "test_file_hash_zero_for_different_files",
+          "test_function_names_shared_on_identical",
+          "test_identical_repos_score_near_perfect",
+          "test_line_similarity_file_match_detail",
+          "test_line_similarity_stats_in_details",
+          "test_no_method_errors",
+          "test_scores_are_strictly_ordered",
+          "test_similar_repos_score_moderate"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/tests/test_zip_ingestion.py",
+      "file_b_path": "code_compare_lite/backend/tests/test_zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "TestExtractZip",
+          "_make_zip",
+          "test_extracts_files",
+          "test_extracts_nested_files",
+          "test_invalid_zip_raises",
+          "test_multiple_top_level_items_not_unwrapped",
+          "test_returns_path",
+          "test_single_top_level_dir_unwrapped"
+        ]
+      }
+    },
+    {
+      "file_a_path": "frontend/src/App.tsx",
+      "file_b_path": "code_compare_lite/frontend/src/App.tsx",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "App",
+          "CallGraphViz",
+          "DirectoryBrowser",
+          "FilePairDetail",
+          "MethodCard",
+          "MiniBar",
+          "Pct",
+          "RepoCard",
+          "ResultsView",
+          "SharedPills",
+          "placeCol",
+          "renderEdge",
+          "scoreBar",
+          "scoreBg",
+          "scoreColor"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/config.py",
+      "file_b_path": "code_comparison/backend/app/core/config.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "Settings"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/main.py",
+      "file_b_path": "code_comparison/backend/app/main.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "health"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/ast_structure.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "AstStructureMethod",
+          "_jaccard_multiset",
+          "_subtree_fingerprints",
+          "_subtree_hash",
+          "compare",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/base.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/base.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ComparisonMethod",
+          "FileMatch",
+          "MethodResult",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/complexity_profile.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ComplexityProfileMethod",
+          "_complexity_histogram",
+          "_cosine_counters",
+          "_count_branches_in_subtree",
+          "compare",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/function_names.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/function_names.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "FunctionNamesMethod",
+          "_jaccard",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/identifier_similarity.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/identifier_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "IdentifierSimilarityMethod",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/import_analysis.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "ImportAnalysisMethod",
+          "_extract_imports",
+          "_jaccard",
+          "compare"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/token_ngram.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 1.0,
+      "method_id": "function_names",
+      "detail": {
+        "shared_functions": [
+          "TokenNgramMethod",
+          "_fingerprint",
+          "_jaccard",
+          "_kgram_hashes",
+          "_tokenise",
+          "_winnow",
+          "compare",
+          "walk"
+        ]
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/facili_T/backend/app/api/routes/ws.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/fraud_detection_framework/fraud_detection_framework/outputs/excel_output.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/nand_to_app/cpu_hardware/hardware_components.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/towertalking/client/src/utils/textDiff.ts",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/staticfiles/admin/js/calendar.js",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/api.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/comparison.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/call_graph.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/file_hash.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/function_names.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/line_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/app/services/parser.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/different_a/text_parser.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_a/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/identical_b/stats.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_a/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/fixtures/similar_b/metrics.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/test_api.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/test_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/test_methods.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/test_similarity_scores.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/backend/tests/test_zip_ingestion.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_compare_lite/frontend/src/App.tsx",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/file_hash.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/function_names.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/line_similarity.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 1.0,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/tests/detections/test_video_length.py",
+      "similarity_score": 0.996,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/campaigns/tests/test_campaigns.py",
+      "similarity_score": 0.996,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/reports/tests/test_reports.py",
+      "similarity_score": 0.996,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/users/tests/test_users.py",
+      "similarity_score": 0.996,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/Sockie/backend/routers/cases.py",
+      "similarity_score": 0.9959,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/tests/detections/test_text_hashtag.py",
+      "similarity_score": 0.9948,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/messages/tests/test_messages.py",
+      "similarity_score": 0.9948,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/tests/test_api/test_auth.py",
+      "similarity_score": 0.9945,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/tests/detections/test_script_verification.py",
+      "similarity_score": 0.9901,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/detections/tests/test_tiktok_api.py",
+      "similarity_score": 0.9901,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "backend/app/services/methods/token_ngram.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/token_ngram.py",
+      "similarity_score": 0.9878,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 81,
+        "total_b_lines": 82,
+        "sample_matches": [
+          "\"block_comment\": _SKIP,",
+          "\"comment\": _SKIP,",
+          "\"float\": \"NUM\",",
+          "\"identifier\": \"ID\",",
+          "\"integer\": \"NUM\",",
+          "\"line_comment\": _SKIP,",
+          "\"string\": \"STR\",",
+          "\"string_content\": \"STR\",",
+          "1. Tokenise each file using tree-sitter leaf nodes (type stripped to category).",
+          "2. Build k-grams and hash each."
+        ]
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/clients/tests/test_clients.py",
+      "similarity_score": 0.986,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "backend/app/services/methods/ast_structure.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/ast_structure.py",
+      "similarity_score": 0.9851,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 66,
+        "total_b_lines": 67,
+        "sample_matches": [
+          "\"\"\"Recursively hash the structural shape of an AST subtree.\"\"\"",
+          "\"identifier\", \"string\", \"integer\", \"float\", \"comment\",",
+          "\"string_content\", \"escape_sequence\",",
+          "AST structural similarity.",
+          "Serialises the AST of each file into a sequence of node types (identifiers",
+          "_STRIP_TYPES = {",
+          "child_hashes = \"\".join(_subtree_hash(c, src) for c in node.children)",
+          "class AstStructureMethod(ComparisonMethod):",
+          "combined = node.type + child_hashes",
+          "counts: Counter = Counter()"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/complexity_profile.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/complexity_profile.py",
+      "similarity_score": 0.9851,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 66,
+        "total_b_lines": 67,
+        "sample_matches": [
+          "\"a_func_count\": sum(hist_a.values()),",
+          "\"arrow_function\",",
+          "\"b_func_count\": sum(hist_b.values()),",
+          "\"complexity_cosine\": round(score, 4),",
+          "\"conditional_expression\",",
+          "\"function_definition\", \"function_declaration\", \"method_definition\",",
+          "\"if_statement\", \"elif_clause\", \"for_statement\", \"while_statement\",",
+          "\"if_statement\", \"for_statement\", \"while_statement\", \"do_statement\",",
+          "\"try_statement\", \"catch_clause\", \"switch_case\", \"ternary_expression\",",
+          "\"try_statement\", \"except_clause\", \"with_statement\", \"match_statement\","
+        ]
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/fraud_detection_framework/tests/test_datasources/test_csv_source.py",
+      "similarity_score": 0.9835,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/fraud_detection_framework/tests/test_datasources/test_excel_source.py",
+      "similarity_score": 0.9835,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/tests/detections/test_verbal_competitor.py",
+      "similarity_score": 0.9835,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/tests/views/test_detection_types.py",
+      "similarity_score": 0.982,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "backend/app/services/methods/file_hash.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/file_hash.py",
+      "similarity_score": 0.9804,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 50,
+        "total_b_lines": 51,
+        "sample_matches": [
+          "Computes the fraction of files in Repo B whose normalised hash matches ANY",
+          "File hash comparison.",
+          "Normalises each file (strip comments + blank lines) then SHA-256 hashes it.",
+          "_BLANK_OR_COMMENT = re.compile(",
+          "break",
+          "class FileHashMethod(ComparisonMethod):",
+          "def _hash_file(path: Path) -> str:",
+          "def _normalise(content: str) -> str:",
+          "default_weight = 0.15",
+          "detail={\"hash\": hb[:16] + \"\u2026\"},"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/parser.py",
+      "file_b_path": "code_comparison/backend/app/services/parser.py",
+      "similarity_score": 0.9744,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 76,
+        "total_b_lines": 78,
+        "sample_matches": [
+          "\"\"\",",
+          "\".cjs\": JS_LANGUAGE,",
+          "\".js\": JS_LANGUAGE,",
+          "\".jsx\": JS_LANGUAGE,",
+          "\".mjs\": JS_LANGUAGE,",
+          "\".py\": PY_LANGUAGE,",
+          "\".ts\": TS_LANGUAGE,",
+          "\".tsx\": TSX_LANGUAGE,",
+          "\"break\", \"continue\", \"yield\", \"lambda\", \"None\", \"True\", \"False\",",
+          "\"def\", \"class\", \"return\", \"import\", \"from\", \"if\", \"else\", \"elif\","
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/call_graph.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/call_graph.py",
+      "similarity_score": 0.9703,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 98,
+        "total_b_lines": 101,
+        "sample_matches": [
+          "\"\"\",",
+          "(call function: (attribute attribute: (identifier) @callee))",
+          "(call function: (identifier) @callee)",
+          "(call_expression function: (identifier) @callee)",
+          "(call_expression function: (member_expression property: (property_identifier) @callee))",
+          "- edges = function A calls function B",
+          "- nodes = function/method names",
+          "Builds a directed call graph per file using tree-sitter queries:",
+          "Call graph / logic tracing comparison.",
+          "G = nx.DiGraph()"
+        ]
+      }
+    },
+    {
+      "file_a_path": "backend/app/services/methods/import_analysis.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/import_analysis.py",
+      "similarity_score": 0.9688,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 62,
+        "total_b_lines": 64,
+        "sample_matches": [
+          "\"\"\",",
+          "\"shared_count\": len(shared),",
+          "\"shared_imports\": shared[:30],",
+          "\"unique_to_a\": len(imports_a - imports_b),",
+          "\"unique_to_b\": len(imports_b - imports_a),",
+          "(call_expression function: (identifier) @require",
+          "(import_from_statement module_name: (dotted_name) @module)",
+          "(import_from_statement module_name: (relative_import) @module)",
+          "(import_statement (dotted_name) @module)",
+          "(import_statement source: (string (string_fragment) @module))"
+        ]
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "adwatch/adwatch/adwatch-backend/apps/requirements/serializers.py",
+      "similarity_score": 0.9661,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "backend/app/services/methods/base.py",
+      "file_b_path": "code_comparison/backend/app/services/methods/base.py",
+      "similarity_score": 0.9615,
+      "method_id": "line_similarity",
+      "detail": {
+        "matched_lines": 25,
+        "total_b_lines": 26,
+        "sample_matches": [
+          "\"\"\"Abstract base for all comparison methods.\"\"\"",
+          ") -> MethodResult:",
+          "@abstractmethod",
+          "@dataclass",
+          "class ComparisonMethod(ABC):",
+          "class FileMatch:",
+          "class MethodResult:",
+          "def compare(",
+          "default_weight: float = 0.1",
+          "detail: dict = field(default_factory=dict)"
+        ]
+      }
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/detections/overlay.py",
+      "similarity_score": 0.9544,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/facili_T/backend/app/core/ws_manager.py",
+      "similarity_score": 0.9535,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/api/routes/configs.py",
+      "similarity_score": 0.9535,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/app/api/routes/repositories.py",
+      "similarity_score": 0.9535,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "code_comparison/backend/tests/test_api/test_comparisons_api.py",
+      "similarity_score": 0.9535,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/detections/competitor_product.py",
+      "similarity_score": 0.9428,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/detections/person_presence.py",
+      "similarity_score": 0.9428,
+      "method_id": "call_graph",
+      "detail": {}
+    },
+    {
+      "file_a_path": "(best match)",
+      "file_b_path": "Documents/tokwatch/backend/apps/compliance/detections/skin_exposure.py",
+      "similarity_score": 0.9428,
+      "method_id": "call_graph",
+      "detail": {}
+    }
+  ],
+  "output_file": "output/comparison_4ce94bf9.json",
+  "created_at": "2026-06-01T04:34:07.558906+00:00"
+}

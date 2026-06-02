@@ -18,8 +18,6 @@ from app.services.methods.token_ngram import TokenNgramMethod
 from app.services.methods.call_graph import CallGraphMethod
 from app.services.methods.import_analysis import ImportAnalysisMethod
 from app.services.methods.identifier_similarity import IdentifierSimilarityMethod
-from app.services.methods.complexity_profile import ComplexityProfileMethod
-
 ALL_METHODS: list[ComparisonMethod] = [
     FileHashMethod(),
     LineSimilarityMethod(),
@@ -29,7 +27,6 @@ ALL_METHODS: list[ComparisonMethod] = [
     CallGraphMethod(),
     ImportAnalysisMethod(),
     IdentifierSimilarityMethod(),
-    ComplexityProfileMethod(),
 ]
 
 

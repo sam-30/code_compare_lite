@@ -1,5 +1,5 @@
 """
-Unit tests for all 9 comparison methods.
+Unit tests for all 8 comparison methods.
 
 Each method is exercised with small in-memory Python/JS files whose
 expected scores can be reasoned about directly.
@@ -559,48 +559,3 @@ class TestIdentifierSimilarityMethod:
         root_b.mkdir()
         result = self.method.compare(root_a, [], root_b, [])
         assert result.score == 0.0
-
-
-# ── ComplexityProfileMethod ───────────────────────────────────────────────────
-
-class TestComplexityProfileMethod:
-    @pytest.fixture(autouse=True)
-    def _method(self):
-        from app.services.methods.complexity_profile import ComplexityProfileMethod
-        self.method = ComplexityProfileMethod()
-
-    def test_identical_code_high_score(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_BRANCHES})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_BRANCHES})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        assert result.score > 0.9
-
-    def test_no_branches_vs_many_branches_lower_score(self, tmp_path):
-        simple = "def foo():\n    return 1\n"
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": simple})
-        root_b_complex, files_b_complex = _repo(tmp_path, "b_complex", {"f.py": PY_BRANCHES})
-        root_b_simple, files_b_simple = _repo(tmp_path, "b_simple", {"f.py": simple})
-        score_mismatch = self.method.compare(root_a, files_a, root_b_complex, files_b_complex).score
-        score_identical = self.method.compare(root_a, files_a, root_b_simple, files_b_simple).score
-        assert score_mismatch < score_identical
-
-    def test_details_include_func_counts(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_BRANCHES})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_BRANCHES})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        assert result.details["a_func_count"] > 0
-        assert result.details["b_func_count"] > 0
-
-    def test_empty_inputs_returns_zero(self, tmp_path):
-        root_a = tmp_path / "a"
-        root_a.mkdir()
-        root_b = tmp_path / "b"
-        root_b.mkdir()
-        result = self.method.compare(root_a, [], root_b, [])
-        assert result.score == 0.0
-
-    def test_score_in_range(self, tmp_path):
-        root_a, files_a = _repo(tmp_path, "a", {"f.py": PY_BRANCHES})
-        root_b, files_b = _repo(tmp_path, "b", {"f.py": PY_DIFFERENT})
-        result = self.method.compare(root_a, files_a, root_b, files_b)
-        assert 0.0 <= result.score <= 1.0
